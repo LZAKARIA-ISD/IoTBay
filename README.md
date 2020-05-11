@@ -1,3 +1,3 @@
 # IoTBay
 
-This is a test README. Edit me in the future :)
+Netbeans project for Introduction to Software Development.
