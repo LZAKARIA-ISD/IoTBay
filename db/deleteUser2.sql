@@ -1,0 +1,1 @@
+DELETE FROM ISDUSER.USERS WHERE EMAIL = 'gh@gmail.com';
