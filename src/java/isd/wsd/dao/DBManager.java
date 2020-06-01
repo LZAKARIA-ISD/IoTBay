@@ -1,0 +1,90 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package isd.wsd.dao;
+
+import isd.wsd.Customer;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+
+/**
+ *
+ * @author chris
+ */
+public class DBManager {
+    private Statement st;
+    
+    public DBManager(Connection conn) throws SQLException {
+        st = conn.createStatement();
+    }
+    
+    //read
+    public Customer findCustomer(String email, String password) throws SQLException {
+        String read = "SELECT * FROM ISDSTAFF.CUSTOMER WHERE EMAIL="+email+" AND PASSWORD="+password;
+        ResultSet rs = st.executeQuery(read);
+        
+        while (rs.next()){
+            String customerEmail = rs.getString(1);
+            String customerPass = rs.getString(5);
+            if (customerEmail.equals(email) && customerPass.equals(password)){
+                String customerName = rs.getString(2);
+                String customerGender = rs.getString(3);
+                String customerDOB = rs.getString(4);
+                
+                return new Customer(customerEmail, customerName, customerPass, customerDOB, customerGender);
+            }
+        }
+        
+        return null;
+    }
+    
+    //create
+    public void addCustomer(String email, String name, String password, String dob, String gender) throws SQLException {
+        st.executeUpdate("INSERT INTO ISDSTAFF.CUSTOMER " + "VALUES ('" + email +"', '" + name + "', '" + gender + "', '" + dob + "', '" + password + "')");
+    }
+    
+    //update
+    public void updateCustomer(String email, String name, String password, String dob, String gender) throws SQLException {
+        st.executeUpdate("UPDATE ISDSTAFF.CUSTOMER SET CUSNAME='" + name + "', CUSPASSWORD='" + password + "', CUSGENDER='" + gender + "', CUSDOB='" + dob + "' WHERE CUSEMAIL='" + email + "'");
+    }
+    
+    //delete
+    public void deleteCustomer(String email) throws SQLException {
+        st.executeUpdate("DELETE FROM ISDSTAFF.CUSTOMER WHERE CUSEMAIL='" + email + "'");
+    }
+    
+    public ArrayList<Customer> fetchCustomer() throws SQLException {
+        String fetch = "SELECT * FROM CUSTOMER";
+        ResultSet rs = st.executeQuery(fetch);
+        ArrayList<Customer> temp = new ArrayList();
+        
+        while (rs.next()){
+            String email = rs.getString(1);
+            String name = rs.getString(2);
+            String gender = rs.getString(3);
+            String dob = rs.getString(4);
+            String password = rs.getString(5);
+            temp.add(new Customer(email, name, gender, dob, password));
+        }
+        return temp;
+    }
+    
+    public boolean checkCustomer(String email, String password) throws SQLException {
+        String fetch = "SELECT * FROM ISDSTAFF.CUSTOMER WHERE CUSEMAIL = '" + email + "' AND CUSPASSWORD='" + password + "'";
+        ResultSet rs = st.executeQuery(fetch);
+        
+        while (rs.next()){
+            String customerEmail = rs.getString(2);
+            String customerPass = rs.getString(3);
+            if (customerEmail.equals(email) && customerPass.equals(password)) {
+            return true;
+            }
+        }
+        return false;
+    }
+}
