@@ -6,7 +6,7 @@
 package isd.controller;
 
 import isd.wsd.dao.DBConnector;
-import isd.wsd.dao.DBManager;
+import isd.wsd.dao.CustomerDBManager;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Scanner;
@@ -28,7 +28,7 @@ public class Temp {
 
             Connection conn = connector.openConnection();
 
-            DBManager db = new DBManager(conn);
+            CustomerDBManager db = new CustomerDBManager(conn);
 
             System.out.print("User email: ");
 

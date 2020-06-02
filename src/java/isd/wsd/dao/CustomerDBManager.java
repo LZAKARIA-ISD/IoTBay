@@ -16,10 +16,10 @@ import java.util.ArrayList;
  *
  * @author chris
  */
-public class DBManager {
+public class CustomerDBManager {
     private Statement st;
     
-    public DBManager(Connection conn) throws SQLException {
+    public CustomerDBManager(Connection conn) throws SQLException {
         st = conn.createStatement();
     }
     
