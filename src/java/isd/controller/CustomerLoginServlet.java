@@ -20,7 +20,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author chris
  */
-public class LoginServlet extends HttpServlet {
+public class CustomerLoginServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)   throws ServletException, IOException {

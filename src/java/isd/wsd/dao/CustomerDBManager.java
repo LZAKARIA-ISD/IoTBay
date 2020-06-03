@@ -25,7 +25,7 @@ public class CustomerDBManager {
     
     //read
     public Customer findCustomer(String email, String password) throws SQLException {
-        String read = "SELECT * FROM ISDSTAFF.CUSTOMER WHERE EMAIL="+email+" AND PASSWORD="+password;
+        String read = "SELECT * FROM ISDSTAFF.CUSTOMER WHERE CUSEMAIL="+email+" AND CUSPASSWORD="+password;
         ResultSet rs = st.executeQuery(read);
         
         while (rs.next()){
@@ -69,7 +69,7 @@ public class CustomerDBManager {
             String gender = rs.getString(3);
             String dob = rs.getString(4);
             String password = rs.getString(5);
-            temp.add(new Customer(email, name, gender, dob, password));
+            temp.add(new Customer(email, name, password, dob, gender));
         }
         return temp;
     }

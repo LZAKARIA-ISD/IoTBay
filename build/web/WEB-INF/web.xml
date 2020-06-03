@@ -7,7 +7,17 @@
     </servlet>
     <servlet>
         <servlet-name>LoginServlet</servlet-name>
-        <servlet-class>isd.controller.LoginServlet</servlet-class>
+        <servlet-class>isd.controller.CustomerLoginServlet</servlet-class>
+        <load-on-startup>0</load-on-startup>
+    </servlet>
+    <servlet>
+        <servlet-name>StaffConServlet</servlet-name>
+        <servlet-class>isd.controller.StaffConnServlet</servlet-class>
+        <load-on-startup>0</load-on-startup>
+    </servlet>
+    <servlet>
+        <servlet-name>StaffLoginServlet</servlet-name>
+        <servlet-class>isd.controller.StaffLoginServlet</servlet-class>
         <load-on-startup>0</load-on-startup>
     </servlet>
     <servlet-mapping>
@@ -17,6 +27,14 @@
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StaffConServlet</servlet-name>
+        <url-pattern>/StaffConServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StaffLoginServlet</servlet-name>
+        <url-pattern>/StaffLoginServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
