@@ -33,5 +33,4 @@
                 <a href="index.jsp" role="button" class="btn btn-primary btn-lg mt-2">Return to Home</a>
             </div>
         </div>
-<div class="index-footer text-muted"><small>ISD - Group 7</small></div>    </body>
 </html>

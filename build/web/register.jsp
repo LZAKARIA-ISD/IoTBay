@@ -85,5 +85,4 @@
             </div>
             
         </div>
-<div class="index-footer text-muted"><small>ISD - Group 7</small></div>    </body>
 </html>
