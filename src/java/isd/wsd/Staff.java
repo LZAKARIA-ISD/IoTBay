@@ -7,21 +7,23 @@ package isd.wsd;
 
 /**
  *
- * @author chris
+ * @author chris & lucas
  */
+<<<<<<< HEAD
 public class Staff {
     private String email;
     private String name;
     private String password;
     private String dob;
-    private String gender;
+    private String phone;
 
-    public Staff(String email, String name, String password, String dob, String gender) {
+    public Staff(String email, String name, String password, String phone, String dob) {
         this.email = email;
         this.name = name;
         this.password = password;
+        this.phone = phone;
         this.dob = dob;
-        this.gender = gender;
+        
     }
 
     public String getEmail() {
@@ -56,11 +58,20 @@ public class Staff {
         this.dob = dob;
     }
 
-    public String getGender() {
-        return gender;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setGender(String gender) {
-        this.gender = gender;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 }
+=======
+public class Staff extends User {
+
+    public Staff(String email, String name, String password, String dob, String phone) {
+        super(email, name, password, dob, phone);
+    }
+
+}
+>>>>>>> 5bbc72751c30e956fe1fed2303de06a0cb7db626

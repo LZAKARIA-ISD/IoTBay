@@ -42,15 +42,15 @@ public class Temp {
 
             String password = in.nextLine();
 
-            System.out.print("User gender: ");
+            System.out.print("User phone: ");
 
-            String gender = in.nextLine();
+            String phone = in.nextLine();
 
             System.out.print("User date of birth: ");
 
             String dob = in.nextLine();
 
-            db.addCustomer(email, name, gender, dob, password);
+            db.addCustomer(email, name, password, phone, dob);
 
             System.out.println("User is added to the database.");
 

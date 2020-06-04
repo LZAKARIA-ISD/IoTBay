@@ -19,8 +19,8 @@
             String email = request.getParameter("email");
             String name = request.getParameter("name");
             String password = request.getParameter("password");
+            String phone = request.getParameter("phone");
             String dob = request.getParameter("dob");
-            String gender = request.getParameter("gender");
             String tos = request.getParameter("tos");
             String objtype = request.getParameter("objtype");
             
@@ -29,7 +29,7 @@
             
             if( (tos != null && tos.equals("tos")) || (objtype != null && objtype.equals("login")) || customer != null) {
                 if(customer == null){
-                    customer = new Customer(email,name,password,dob,gender);
+                    customer = new Customer(email,name,password,phone,dob);
                     session.setAttribute("customer",customer);
                 }
         %>
@@ -85,6 +85,4 @@
                     
         <% } %>
                     
-        <div class="footer text-muted"><small>Lucas Hahn - 12554200 - Group 7</small></div>
-    </body>
 </html>

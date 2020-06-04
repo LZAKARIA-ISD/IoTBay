@@ -34,7 +34,7 @@ public class CustomerLoginServlet extends HttpServlet {
         validator.clear(session);
         
         if (!validator.validateEmail(email)){
-             session.setAttribute("emailErr", "Error: Email format incorrect");
+           session.setAttribute("emailErr", "Error: Email format incorrect");
            request.getRequestDispatcher("login.jsp").include(request, response);
        } else if (!validator.validatePassword(password)) {
            session.setAttribute("passErr", "Error: Password format incorrect");
@@ -51,6 +51,8 @@ public class CustomerLoginServlet extends HttpServlet {
                }
            } catch (SQLException | NullPointerException ex) {
                System.out.println(ex.getMessage() == null ? "Customer does not exist" : "welcome");
+               session.setAttribute("existErr", "Customer does not exist in the Database!") ;
+               request.getRequestDispatcher("login.jsp").include(request, response);
            }
        }
     }
