@@ -85,6 +85,5 @@
                     
         <% } %>
                     
-        <div class="footer text-muted"><small>Lucas Hahn - 12554200 - Group 7</small></div>
-    </body>
+<div class="index-footer text-muted"><small>ISD - Group 7</small></div>    </body>
 </html>
