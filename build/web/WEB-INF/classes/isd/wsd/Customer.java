@@ -15,6 +15,7 @@ public class Customer {
     private String password;
     private String dob;
 <<<<<<< HEAD
+<<<<<<< HEAD
     private String phone;
 
     public Customer(String email, String name, String password, String phone, String dob) {
@@ -25,6 +26,8 @@ public class Customer {
         this.dob = dob;
         
 =======
+=======
+>>>>>>> 5bbc72751c30e956fe1fed2303de06a0cb7db626
     private String gender;
 
     public Customer(String email, String name, String password, String dob, String gender) {
@@ -33,6 +36,9 @@ public class Customer {
         this.password = password;
         this.dob = dob;
         this.gender = gender;
+<<<<<<< HEAD
+>>>>>>> 5bbc72751c30e956fe1fed2303de06a0cb7db626
+=======
 >>>>>>> 5bbc72751c30e956fe1fed2303de06a0cb7db626
     }
 
@@ -69,6 +75,7 @@ public class Customer {
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     public String getPhone() {
         return phone;
     }
@@ -77,6 +84,8 @@ public class Customer {
         this.phone = phone;
     }
 =======
+=======
+>>>>>>> 5bbc72751c30e956fe1fed2303de06a0cb7db626
     public String getGender() {
         return gender;
     }
@@ -87,5 +96,8 @@ public class Customer {
     
     
     
+<<<<<<< HEAD
+>>>>>>> 5bbc72751c30e956fe1fed2303de06a0cb7db626
+=======
 >>>>>>> 5bbc72751c30e956fe1fed2303de06a0cb7db626
 }

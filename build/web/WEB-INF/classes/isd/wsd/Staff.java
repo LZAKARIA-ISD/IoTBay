@@ -15,6 +15,7 @@ public class Staff {
     private String password;
     private String dob;
 <<<<<<< HEAD
+<<<<<<< HEAD
     private String phone;
 
     public Staff(String email, String name, String password, String phone, String dob) {
@@ -25,6 +26,8 @@ public class Staff {
         this.dob = dob;
         
 =======
+=======
+>>>>>>> 5bbc72751c30e956fe1fed2303de06a0cb7db626
     private String gender;
 
     public Staff(String email, String name, String password, String dob, String gender) {
@@ -33,6 +36,9 @@ public class Staff {
         this.password = password;
         this.dob = dob;
         this.gender = gender;
+<<<<<<< HEAD
+>>>>>>> 5bbc72751c30e956fe1fed2303de06a0cb7db626
+=======
 >>>>>>> 5bbc72751c30e956fe1fed2303de06a0cb7db626
     }
 
@@ -69,6 +75,7 @@ public class Staff {
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     public String getPhone() {
         return phone;
     }
@@ -78,6 +85,8 @@ public class Staff {
     }
 }
 =======
+=======
+>>>>>>> 5bbc72751c30e956fe1fed2303de06a0cb7db626
     public String getGender() {
         return gender;
     }
@@ -86,4 +95,7 @@ public class Staff {
         this.gender = gender;
     }
 }
+<<<<<<< HEAD
+>>>>>>> 5bbc72751c30e956fe1fed2303de06a0cb7db626
+=======
 >>>>>>> 5bbc72751c30e956fe1fed2303de06a0cb7db626

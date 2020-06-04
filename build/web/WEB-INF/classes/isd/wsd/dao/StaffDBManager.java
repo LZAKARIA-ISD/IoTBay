@@ -26,7 +26,11 @@ public class StaffDBManager {
     
     public Staff findStaff(String email, String password) throws SQLException {
 <<<<<<< HEAD
+<<<<<<< HEAD
         String read = "SELECT * FROM ISDSTAFF.STAFFS WHERE STAFFEMAIL="+email+" AND STAFPASSWORD="+password;
+=======
+        String read = "SELECT * FROM ISDSTAFF.Staff WHERE STAFFEMAIL="+email+" AND STAFPASSWORD="+password;
+>>>>>>> 5bbc72751c30e956fe1fed2303de06a0cb7db626
 =======
         String read = "SELECT * FROM ISDSTAFF.Staff WHERE STAFFEMAIL="+email+" AND STAFPASSWORD="+password;
 >>>>>>> 5bbc72751c30e956fe1fed2303de06a0cb7db626
@@ -34,6 +38,7 @@ public class StaffDBManager {
         
         while (rs.next()){
             String staffEmail = rs.getString(1);
+<<<<<<< HEAD
 <<<<<<< HEAD
             String staffPass = rs.getString(3);
             if (staffEmail.equals(email) && staffPass.equals(password)){
@@ -43,6 +48,8 @@ public class StaffDBManager {
                 
                 return new Staff(staffEmail, staffName, staffPass, staffPhone, staffDOB);
 =======
+=======
+>>>>>>> 5bbc72751c30e956fe1fed2303de06a0cb7db626
             String staffPass = rs.getString(5);
             if (staffEmail.equals(email) && staffPass.equals(password)){
                 String staffName = rs.getString(2);
@@ -50,6 +57,9 @@ public class StaffDBManager {
                 String staffDOB = rs.getString(4);
                 
                 return new Staff(staffEmail, staffName, staffPass, staffDOB, staffGender);
+<<<<<<< HEAD
+>>>>>>> 5bbc72751c30e956fe1fed2303de06a0cb7db626
+=======
 >>>>>>> 5bbc72751c30e956fe1fed2303de06a0cb7db626
             }
         }
@@ -57,6 +67,7 @@ public class StaffDBManager {
         return null;
     }
     
+<<<<<<< HEAD
 <<<<<<< HEAD
     public void addStaff(String email, String name, String password, String phone, String dob) throws SQLException {
         st.executeUpdate("INSERT INTO ISDSTAFF.STAFFS " + "VALUES ('" + email +"', '" + name + "', '" + password + "', '" + phone + "', '" + dob + "')");
@@ -73,6 +84,8 @@ public class StaffDBManager {
     public ArrayList<Staff> fetchStaff() throws SQLException {
         String fetch = "SELECT * FROM STAFFS";
 =======
+=======
+>>>>>>> 5bbc72751c30e956fe1fed2303de06a0cb7db626
     public void addStaff(String email, String name, String password, String dob, String gender) throws SQLException {
         st.executeUpdate("INSERT INTO ISDSTAFF.STAFF " + "VALUES ('" + email +"', '" + name + "', '" + gender + "', '" + dob + "', '" + password + "')");
     }
@@ -87,6 +100,9 @@ public class StaffDBManager {
     
     public ArrayList<Staff> fetchStaff() throws SQLException {
         String fetch = "SELECT * FROM STAFF";
+<<<<<<< HEAD
+>>>>>>> 5bbc72751c30e956fe1fed2303de06a0cb7db626
+=======
 >>>>>>> 5bbc72751c30e956fe1fed2303de06a0cb7db626
         ResultSet rs = st.executeQuery(fetch);
         ArrayList<Staff> temp = new ArrayList();
@@ -95,15 +111,21 @@ public class StaffDBManager {
             String email = rs.getString(1);
             String name = rs.getString(2);
 <<<<<<< HEAD
+<<<<<<< HEAD
             String password = rs.getString(3);
             String phone = rs.getString(4);
             String dob = rs.getString(5);
             temp.add(new Staff(email, name, password, phone, dob));
 =======
+=======
+>>>>>>> 5bbc72751c30e956fe1fed2303de06a0cb7db626
             String dob = rs.getString(3);
             String gender = rs.getString(4);
             String password = rs.getString(5);
             temp.add(new Staff(email, name, password, dob, gender));
+<<<<<<< HEAD
+>>>>>>> 5bbc72751c30e956fe1fed2303de06a0cb7db626
+=======
 >>>>>>> 5bbc72751c30e956fe1fed2303de06a0cb7db626
         }
         return temp;
@@ -111,17 +133,23 @@ public class StaffDBManager {
     
      public boolean checkStaff(String email, String password) throws SQLException {
 <<<<<<< HEAD
+<<<<<<< HEAD
         String fetch = "SELECT * FROM ISDSTAFF.STAFFS WHERE STAFFEMAIL = '" + email + "' AND STAFFPASSWORD='" + password + "'";
         ResultSet rs = st.executeQuery(fetch);
         
         while (rs.next()){
             String staffEmail = rs.getString(1);
 =======
+=======
+>>>>>>> 5bbc72751c30e956fe1fed2303de06a0cb7db626
         String fetch = "SELECT * FROM ISDSTAFF.STAFF WHERE STAFFEMAIL = '" + email + "' AND STAFFPASSWORD='" + password + "'";
         ResultSet rs = st.executeQuery(fetch);
         
         while (rs.next()){
             String staffEmail = rs.getString(2);
+<<<<<<< HEAD
+>>>>>>> 5bbc72751c30e956fe1fed2303de06a0cb7db626
+=======
 >>>>>>> 5bbc72751c30e956fe1fed2303de06a0cb7db626
             String staffPass = rs.getString(3);
             if (staffEmail.equals(email) && staffPass.equals(password)) {
