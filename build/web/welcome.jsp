@@ -19,17 +19,20 @@
             String email = request.getParameter("email");
             String name = request.getParameter("name");
             String password = request.getParameter("password");
-            String dob = request.getParameter("dob");
-            String gender = request.getParameter("gender");
-            String tos = request.getParameter("tos");
-            String objtype = request.getParameter("objtype");
+            String phone = request.getParameter("phone"); //need to add to register form
+            String dob = request.getParameter("dob"); //not applicable anymore
+            String gender = request.getParameter("gender"); //not applicable anymore
+            String tos = request.getParameter("tos"); //not applicable anymore ???
+            String type = request.getParameter("type"); //individual or company
             
             Customer customer = (Customer)session.getAttribute("customer");
             
             
-            if( (tos != null && tos.equals("tos")) || (objtype != null && objtype.equals("login")) || customer != null) {
-                if(customer == null){
-                    customer = new Customer(email,name,password,dob,gender);
+            if(customer != null) {
+                    
+                        
+                     customer = new Customer(email, password, name, phone, type);
+
                     session.setAttribute("customer",customer);
                 }
         %>
@@ -44,9 +47,9 @@
             </div>
             <div class="text-center">
             
-                <h1 class="display-3">Welcome<% if(objtype != null && objtype.equals("login")) { out.print(" back"); }%></h1>
+                <h1 class="display-3">Welcome</h1>
                 <p class="lead">
-                    Welcome ${customer.name != null ? customer.name : customer.email} to the best website for all of your IoTBay needs. 
+                    Welcome ${customer.name} to the best website for all of your IoTBay needs. 
                     <br>
                     Click the button below to continue to the main page
                 </p>
@@ -54,35 +57,6 @@
 
             </div>
         </div>
-                  
-        <% } else { %>   
-                    
-        <div class="container">
-            <div class="navigation">
-                <h3><a href="index.jsp" class="logo-text">IoTBay</a></h3>
-                <div class="inner-nav">
-                    <a href="login.jsp" role="button" class="btn btn-light" >Login</a>
-                    <a href="register.jsp" role="button" class="btn btn-primary">Register</a>
-                </div>
-            </div>
-            <div class="text-center">
-                <% if(objtype != null && objtype.equals("register")) { %>
-                <h1 class="display-3">Failed to register...</h1>
-                <p class="lead">
-                    You need to accept the terms and conditions in order to be able to make an account
-                    <% } else { %>
-                <h1 class="display-3">Something went wrong...</h1>
-                <p class="lead">
-                    Something went wrong
-                <% } %>
-                    <br>
-                    Click to return to the home page
-                </p>
-                <a href="index.jsp" role="button" class="btn btn-primary btn-lg mt-2">Return to Home</a>
-
-            </div>
-        </div>
-                    
-        <% } %>
+                
                     
 </html>

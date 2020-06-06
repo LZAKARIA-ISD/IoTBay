@@ -12,17 +12,17 @@ package isd.wsd;
 public abstract class User {
 
     private String email;
-    private String name;
     private String password;
-    private String dob;
+    private String name;
     private String phone;
+    private Address address;
 
-    public User(String email, String name, String password, String dob, String phone) {
+    public User(String email, String password, String name, String phone) {
         this.email = email;
-        this.name = name;
         this.password = password;
-        this.dob = dob;
+        this.name = name;
         this.phone = phone;
+        this.address = new Address();
     }
 
     public String getEmail() {
@@ -33,14 +33,6 @@ public abstract class User {
         this.email = email;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getPassword() {
         return password;
     }
@@ -49,12 +41,12 @@ public abstract class User {
         this.password = password;
     }
 
-    public String getDob() {
-        return dob;
+    public String getName() {
+        return name;
     }
 
-    public void setDob(String dob) {
-        this.dob = dob;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getPhone() {
@@ -63,6 +55,14 @@ public abstract class User {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(String stNo, String stType, String stAddr, String state, String postcode, String deliveryInstructions) {
+        address.setStNo(stNo); //etc etc
     }
 
 }

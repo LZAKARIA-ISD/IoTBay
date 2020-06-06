@@ -11,8 +11,19 @@ package isd.wsd;
  */
 public class Staff extends User {
 
-    public Staff(String email, String name, String password, String dob, String phone) {
-        super(email, name, password, dob, phone);
+    private String position;
+
+    public Staff(String email, String password, String name, String phone, String position) {
+        super(email, password, name, phone);
+        this.position = position;
+    }
+
+    public String getPosition() {
+        return position;
+    }
+
+    public void setPosition(String position) {
+        this.position = position;
     }
 
 }

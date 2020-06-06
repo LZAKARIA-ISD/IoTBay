@@ -11,8 +11,19 @@ package isd.wsd;
  */
 public class Customer extends User {
 
-    public Customer(String email, String name, String password, String dob, String phone) {
-        super(email, name, password, dob, phone);
+    private String type;
+
+    public Customer(String email, String password, String name, String phone, String type) {
+        super(email, password, name, phone);
+        this.type = type;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
 }

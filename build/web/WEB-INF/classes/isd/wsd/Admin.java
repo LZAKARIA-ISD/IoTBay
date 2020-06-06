@@ -9,15 +9,10 @@ package isd.wsd;
  *
  * @author lucas
  */
-public class Customer extends User {
+public class Admin extends User {
 
-    private String name;
-    private String phone;
-
-    public Customer(String name, String phone, String username, String password) {
+    public Admin(String username, String password) {
         super(username, password);
-        this.name = name;
-        this.phone = phone;
     }
 
 }
