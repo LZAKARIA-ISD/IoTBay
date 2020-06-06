@@ -4,6 +4,7 @@
     Author     : lucas
 --%>
 <%@page import="isd.wsd.Customer"%>
+<%@page import="isd.controller.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -32,18 +33,25 @@
                     <% } %>
                 </div>
             </div>
-            <h1 class="display-3 text-center">Login</h1>
+                
+            <%
+                String existErr = (String) session.getAttribute("existErr");
+                String emailErr = (String) session.getAttribute("emailErr");
+                String passErr = (String) session.getAttribute("passErr");
+            %>    
+                
+            <h1 class="display-3 text-center">Login <%=(existErr != null ? existErr : "")%> </h1> 
             <div class="register">
                 <div class="card">
                     <div class="card-body">
-                      <form method="POST" action="welcome.jsp">
+                      <form method="POST" action="LoginServlet">
                         <div class="form-group">
                           <label for="email">Email address</label>
-                          <input type="text" class="form-control" id="email" name="email" placeholder="e.g. john@smith.com">
+                          <input type="text" class="form-control" id="email" name="email" placeholder="<%=(emailErr != null ? emailErr : "Enter Email")%>">
                         </div>
                         <div class="form-group">
                           <label for="password">Password</label>
-                          <input type="password" class="form-control" id="password" name="password" placeholder="">
+                          <input type="password" class="form-control" id="password" name="password" placeholder="<%=(passErr != null ? passErr : "Enter Password")%>">
                         </div>
                     
                           <input type="hidden" name="objtype" value="login" />

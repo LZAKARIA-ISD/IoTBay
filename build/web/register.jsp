@@ -32,43 +32,38 @@
                     <% } %>
                 </div>
             </div>
-            <h1 class="display-3 text-center">Register</h1>
+                
+                <%
+                    String existErr = (String) session.getAttribute("existErr");
+                    String emailErr = (String) session.getAttribute("emailErr");
+                    String nameErr = (String) session.getAttribute("nameErr");
+                    String passErr = (String) session.getAttribute("passErr");
+                %>
+                
+            <h1 class="display-3 text-center">Register<%=(existErr != null ? existErr : "")%></h1>
             <div class="register">
                 <div class="card">
                     <div class="card-body">
                       <form method="POST" action="welcome.jsp">
                         <div class="form-group">
                           <label for="name">Full Name</label>
-                          <input type="text" class="form-control" id="name" name="name" placeholder="e.g. John Smith">
+                          <input type="text" class="form-control" id="name" name="name" placeholder="<%=(nameErr != null ? nameErr : "Enter Name")%>">
                         </div>
                         <div class="form-group">
                           <label for="email">Email address</label>
-                          <input type="text" class="form-control" id="email" name="email" placeholder="e.g. john@smith.com">
+                          <input type="text" class="form-control" id="email" name="email" placeholder="<%=(emailErr != null ? emailErr : "Enter Email")%>">
                         </div>
                         <div class="form-group">
                           <label for="password">Password</label>
-                          <input type="password" class="form-control" id="password" name="password" placeholder="">
+                          <input type="password" class="form-control" id="password" name="password" placeholder="<%=(passErr != null ? passErr : "Enter Password")%>">
                         </div>
-                          <div class="form-row">
-                              <div class="form-group col-md-5">
+                          <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" class="form-control" id="phone" name="phone" placeholder="Enter Phone Number">
+                          </div>
+                          <div class="form-group">
                             <label for="dob">Date of Birth</label>
                             <input type="date" class="form-control" id="dob" name="dob">
-                          </div>
-                          <div class="form-group col">
-                            <label for="gender">Gender</label>
-                            <div style="height:38px;" class="d-flex align-items-center justify-content-around" id="gender">
-                               <div class="custom-control custom-radio">
-                                <input type="radio" id="male" name="gender" value="male" class="custom-control-input">
-                                <label class="custom-control-label" for="male">Male</label>
-                              </div>
-                              <div class="custom-control custom-radio">
-                                <input type="radio" id="female" name="gender" value="female" class="custom-control-input">
-                                <label class="custom-control-label" for="female">Female</label>
-                              </div>
-                            </div>
-                            
-                              
-                          </div>
                           </div>
                           <hr>
                         <div class="form-group custom-control custom-checkbox pt-2">

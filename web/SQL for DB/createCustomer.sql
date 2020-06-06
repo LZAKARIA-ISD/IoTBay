@@ -8,10 +8,10 @@
  * Created: 04/06/2020
  */
 
-CREATE TABLE CUSTOMER (
+CREATE TABLE CUSTOMERS (
     CusEmail varchar(50) NOT NULL PRIMARY KEY,
     CusName varchar (50),
-    CusGender varchar (10),
-    CusDOB varchar (10),
-    CusPassword varchar (20)
+    CusPassword varchar (20),
+    CusPhone varchar (13),
+    CusDOB varchar (10)
 )

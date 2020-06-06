@@ -25,18 +25,18 @@ public class CustomerDBManager {
     
     //read
     public Customer findCustomer(String email, String password) throws SQLException {
-        String read = "SELECT * FROM ISDSTAFF.CUSTOMER WHERE CUSEMAIL="+email+" AND CUSPASSWORD="+password;
+        String read = "SELECT * FROM ISDSTAFF.CUSTOMERS WHERE CUSEMAIL = '" + email + "' AND CUSPASSWORD = '" + password + "'";
         ResultSet rs = st.executeQuery(read);
         
         while (rs.next()){
             String customerEmail = rs.getString(1);
-            String customerPass = rs.getString(5);
+            String customerPass = rs.getString(3);
             if (customerEmail.equals(email) && customerPass.equals(password)){
                 String customerName = rs.getString(2);
-                String customerGender = rs.getString(3);
-                String customerDOB = rs.getString(4);
+                String customerPhone = rs.getString(4);
+                String customerDOB = rs.getString(5);
                 
-                return new Customer(customerEmail, customerName, customerPass, customerDOB, customerGender);
+                return new Customer(customerEmail, customerName, customerPass, customerPhone, customerDOB);
             }
         }
         
@@ -44,42 +44,42 @@ public class CustomerDBManager {
     }
     
     //create
-    public void addCustomer(String email, String name, String password, String dob, String gender) throws SQLException {
-        st.executeUpdate("INSERT INTO ISDSTAFF.CUSTOMER " + "VALUES ('" + email +"', '" + name + "', '" + gender + "', '" + dob + "', '" + password + "')");
+    public void addCustomer(String email, String name, String password, String phone, String dob ) throws SQLException {
+        st.executeUpdate("INSERT INTO ISDSTAFF.CUSTOMERS " + "VALUES ('" + email +"', '" + name + "', '" + password + "', '" + phone + "', '" + dob + "')");
     }
     
     //update
-    public void updateCustomer(String email, String name, String password, String dob, String gender) throws SQLException {
-        st.executeUpdate("UPDATE ISDSTAFF.CUSTOMER SET CUSNAME='" + name + "', CUSPASSWORD='" + password + "', CUSGENDER='" + gender + "', CUSDOB='" + dob + "' WHERE CUSEMAIL='" + email + "'");
+    public void updateCustomer(String email, String name, String password, String phone, String dob) throws SQLException {
+        st.executeUpdate("UPDATE ISDSTAFF.CUSTOMERS SET CUSNAME='" + name + "', CUSPASSWORD='" + password + "', CUSPHONE='" + phone + "', CUSDOB='" + dob + "' WHERE CUSEMAIL='" + email + "'");
     }
     
     //delete
     public void deleteCustomer(String email) throws SQLException {
-        st.executeUpdate("DELETE FROM ISDSTAFF.CUSTOMER WHERE CUSEMAIL='" + email + "'");
+        st.executeUpdate("DELETE FROM ISDSTAFF.CUSTOMERS WHERE CUSEMAIL='" + email + "'");
     }
     
     public ArrayList<Customer> fetchCustomer() throws SQLException {
-        String fetch = "SELECT * FROM CUSTOMER";
+        String fetch = "SELECT * FROM CUSTOMERS";
         ResultSet rs = st.executeQuery(fetch);
         ArrayList<Customer> temp = new ArrayList();
         
         while (rs.next()){
             String email = rs.getString(1);
             String name = rs.getString(2);
-            String gender = rs.getString(3);
-            String dob = rs.getString(4);
-            String password = rs.getString(5);
-            temp.add(new Customer(email, name, password, dob, gender));
+            String password = rs.getString(3);
+            String phone = rs.getString(4);
+            String dob = rs.getString(5);
+            temp.add(new Customer(email, name, password, phone, dob));
         }
         return temp;
     }
     
     public boolean checkCustomer(String email, String password) throws SQLException {
-        String fetch = "SELECT * FROM ISDSTAFF.CUSTOMER WHERE CUSEMAIL = '" + email + "' AND CUSPASSWORD='" + password + "'";
+        String fetch = "SELECT * FROM ISDSTAFF.CUSTOMERS WHERE CUSEMAIL = '" + email + "' AND CUSPASSWORD='" + password + "'";
         ResultSet rs = st.executeQuery(fetch);
         
         while (rs.next()){
-            String customerEmail = rs.getString(2);
+            String customerEmail = rs.getString(1);
             String customerPass = rs.getString(3);
             if (customerEmail.equals(email) && customerPass.equals(password)) {
             return true;

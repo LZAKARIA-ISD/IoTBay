@@ -20,42 +20,47 @@ import javax.servlet.http.HttpSession;
  *
  * @author chris
  */
-public class CustomerLoginServlet extends HttpServlet {
+public class RegisterServlet extends HttpServlet {
 
-    @Override
+     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)   throws ServletException, IOException {
         HttpSession session = request.getSession();
         Validator validator = new Validator();
         String email = request.getParameter("email");
         String password = request.getParameter("password");
+        String name = request.getParameter("name");
+        String phone = request.getParameter("phone");
+        String dob = request.getParameter("dob");
         
         CustomerDBManager manager = (CustomerDBManager) session.getAttribute("manager");
-        Customer customer = null;
         validator.clear(session);
         
         if (!validator.validateEmail(email)){
            session.setAttribute("emailErr", "Error: Email format incorrect");
-           request.getRequestDispatcher("login.jsp").include(request, response);
+           request.getRequestDispatcher("register.jsp").include(request, response);
+       } else if (!validator.validateName(name)) {
+           session.setAttribute("nameErr", "Error: Name format incorrect");
+           request.getRequestDispatcher("register.jsp").include(request, response);
        } else if (!validator.validatePassword(password)) {
            session.setAttribute("passErr", "Error: Password format incorrect");
-           request.getRequestDispatcher("login.jsp").include(request, response);
+           request.getRequestDispatcher("register.jsp").include(request, response);
        } else {
            try {
-               customer = manager.findCustomer(email, password);
-               if (customer !=null) {
-                   session.setAttribute("customer", customer);
-                   request.getRequestDispatcher("main.jsp").include(request, response);
-               } else {
-                   session.setAttribute("existErr", "Customer does not exist in the Database!") ;
+               Customer exist = manager.findCustomer(email, password);
+               if (exist !=null) {
+                   session.setAttribute("existErr", "Customer already in the Database!") ;
                    request.getRequestDispatcher("login.jsp").include(request, response);
+               } else {
+                   manager.addCustomer(email, name, password, phone, dob);
                }
            } catch (SQLException | NullPointerException ex) {
                System.out.println(ex.getMessage() == null ? "Customer does not exist" : "welcome");
-               session.setAttribute("existErr", "Customer does not exist in the Database!") ;
-               request.getRequestDispatcher("login.jsp").include(request, response);
+               session.setAttribute("existErr", "Customer already in the Database!") ;
+               request.getRequestDispatcher("register.jsp").include(request, response);
            }
        }
     }
+    
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -73,12 +78,15 @@ public class CustomerLoginServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet LoginServlet</title>");            
+            out.println("<title>Servlet RegisterServlet</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet LoginServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet RegisterServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
     }
+
+
+
 }

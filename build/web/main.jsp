@@ -41,15 +41,15 @@
                         <th>Full Name</th>
                         <th>Email</th>
                         <th>Password</th>
+                        <th>Phone Number</th>
                         <th>Date of Birth</th>
-                        <th>Gender</th>
                     </tr>
                     <tr>
                         <td>${customer.name}</td>
                         <td>${customer.email}</td>
                         <td>${customer.password}</td>
-                        <td>${customer.dob}</td>
-                        <td class="text-capitalize">${customer.gender}</td>
+                        <td>${customer.phone}</td>
+                        <td class="text-capitalize">${customer.dob}</td>
                     </tr>
                 </table>
                 </div>
