@@ -1,0 +1,11 @@
+CREATE TABLE ORDERS (
+    ORDID int NOT NULL PRIMARY KEY
+    GENERATED ALWAYS AS IDENTITY
+        (START WITH 1, INCREMENT BY 1),
+    ORDNAME varchar (50),
+    ORDQUAN int,
+    ORDPRICE double,
+    ORDDATE varchar (15),
+    ORDSTATUS varchar (10)
+);
+
