@@ -88,6 +88,8 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                    <h5><i>Quick links</i></h5>\r\n");
       out.write("                    <div>Products, orders, etc ??</div>                  \r\n");
       out.write("                    <a href=\"ProductCollectionServlet\">Products - Temp Link</a>\r\n");
+      out.write("                    <hr>\r\n");
+      out.write("                    <a href=\"staff/index.jsp\">Staff Site - Temp Link</a>\r\n");
       out.write("                </div>\r\n");
       out.write("            </div>\r\n");
       out.write("        </div>\r\n");

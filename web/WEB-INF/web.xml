@@ -57,6 +57,10 @@
         <servlet-name>ProductServlet</servlet-name>
         <servlet-class>isd.controller.ProductServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>StaffRegisterServlet</servlet-name>
+        <servlet-class>isd.controller.StaffRegisterServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CustomerConnServlet</servlet-name>
         <url-pattern>/CustomerConnServlet</url-pattern>
@@ -108,6 +112,10 @@
     <servlet-mapping>
         <servlet-name>ProductServlet</servlet-name>
         <url-pattern>/ProductServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StaffRegisterServlet</servlet-name>
+        <url-pattern>/StaffRegisterServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

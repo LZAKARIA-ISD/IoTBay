@@ -44,11 +44,11 @@ public class StaffDBManager {
     }
     
     public void addStaff(String email, String name, String password, String phone, String dob) throws SQLException {
-        st.executeUpdate("INSERT INTO ISDSTAFF.STAFFS " + "VALUES ('" + email +"', '" + name + "', '" + password + "', '" + phone + "', '" + dob + "')");
+        st.executeUpdate("INSERT INTO ISDSTAFF.STAFFS " + "VALUES ('" + email +"', '" + name + "', '" + password + "', '" + phone + "')");
     }
     
     public void updateStaff(String email, String name, String password, String phone, String dob) throws SQLException {
-        st.executeUpdate("UPDATE ISDSTAFF.STAFFS SET STAFFNAME='" + name + "', STAFFPASSWORD='" + password + "', STAFFPHONE='" + phone + "', STAFFDOB='" + dob + "' WHERE STAFFEMAIL='" + email + "'");
+        st.executeUpdate("UPDATE ISDSTAFF.STAFFS SET STAFFNAME='" + name + "', STAFFPASSWORD='" + password + "', STAFFPHONE='" + phone + "' WHERE STAFFEMAIL='" + email + "'");
     }
     
     public void deleteStaff(String email) throws SQLException {
@@ -65,8 +65,8 @@ public class StaffDBManager {
             String name = rs.getString(2);
             String password = rs.getString(3);
             String phone = rs.getString(4);
-            String dob = rs.getString(5);
-            temp.add(new Staff(email, name, password, phone, dob));
+            String type = "staff";
+            temp.add(new Staff(email, name, password, phone, type));
         }
         return temp;
     }
