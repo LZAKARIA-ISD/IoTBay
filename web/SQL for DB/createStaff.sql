@@ -8,10 +8,11 @@
  * Created: 04/06/2020
  */
 
-CREATE TABLE STAFFS (
+CREATE TABLE STAFF (
     StaffEmail varchar(50) NOT NULL PRIMARY KEY,
     StaffName varchar (50),
     StaffPassword varchar (20),
     StaffPhone varchar (13),
-    StaffDOB varchar (10)
+    StaffDOB varchar (10),
+    StaffPos varchar (20)
 )

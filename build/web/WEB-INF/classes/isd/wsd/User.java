@@ -15,13 +15,15 @@ public abstract class User {
     private String password;
     private String name;
     private String phone;
+    private String dob;
     private Address address;
 
-    public User(String email, String password, String name, String phone) {
+    public User(String email, String password, String name, String phone, String dob) {
         this.email = email;
         this.password = password;
         this.name = name;
         this.phone = phone;
+        this.dob = dob;
         this.address = new Address();
     }
 
@@ -55,6 +57,14 @@ public abstract class User {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public String getDob() {
+        return dob;
+    }
+
+    public void setDob(String dob) {
+        this.dob = dob;
     }
 
     public Address getAddress() {
