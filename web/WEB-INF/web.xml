@@ -25,6 +25,10 @@
         <servlet-class>isd.controller.RegisterServlet</servlet-class>
         <load-on-startup>0</load-on-startup>
     </servlet>
+    <servlet>
+        <servlet-name>ConnServlet</servlet-name>
+        <servlet-class>isd.controller.ConnServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CustomerConnServlet</servlet-name>
         <url-pattern>/CustomerConnServlet</url-pattern>
@@ -44,6 +48,10 @@
     <servlet-mapping>
         <servlet-name>RegisterServlet</servlet-name>
         <url-pattern>/RegisterServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ConnServlet</servlet-name>
+        <url-pattern>/ConnServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
