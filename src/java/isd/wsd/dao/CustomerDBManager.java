@@ -34,9 +34,9 @@ public class CustomerDBManager {
             if (customerEmail.equals(email) && customerPass.equals(password)){
                 String customerName = rs.getString(2);
                 String customerPhone = rs.getString(4);
-                String customerDOB = rs.getString(5);
+                String customerType = "Customer";
                 
-                return new Customer(customerEmail, customerName, customerPass, customerPhone, customerDOB);
+                return new Customer(customerEmail, customerName, customerPass, customerPhone, customerType);
             }
         }
         
@@ -44,13 +44,13 @@ public class CustomerDBManager {
     }
     
     //create
-    public void addCustomer(String email, String name, String password, String phone, String dob ) throws SQLException {
-        st.executeUpdate("INSERT INTO ISDSTAFF.CUSTOMERS " + "VALUES ('" + email +"', '" + name + "', '" + password + "', '" + phone + "', '" + dob + "')");
+    public void addCustomer(String email, String name, String password, String phone, String type ) throws SQLException {
+        st.executeUpdate("INSERT INTO ISDSTAFF.CUSTOMERS " + "VALUES ('" + email +"', '" + name + "', '" + password + "', '" + phone + "')");
     }
     
     //update
-    public void updateCustomer(String email, String name, String password, String phone, String dob) throws SQLException {
-        st.executeUpdate("UPDATE ISDSTAFF.CUSTOMERS SET CUSNAME='" + name + "', CUSPASSWORD='" + password + "', CUSPHONE='" + phone + "', CUSDOB='" + dob + "' WHERE CUSEMAIL='" + email + "'");
+    public void updateCustomer(String email, String name, String password, String phone, String type) throws SQLException {
+        st.executeUpdate("UPDATE ISDSTAFF.CUSTOMERS SET CUSNAME='" + name + "', CUSPASSWORD='" + password + "', CUSPHONE='" + phone + "' WHERE CUSEMAIL='" + email + "'");
     }
     
     //delete
@@ -68,8 +68,8 @@ public class CustomerDBManager {
             String name = rs.getString(2);
             String password = rs.getString(3);
             String phone = rs.getString(4);
-            String dob = rs.getString(5);
-            temp.add(new Customer(email, name, password, phone, dob));
+            String type = "customer";
+            temp.add(new Customer(email, name, password, phone, type));
         }
         return temp;
     }

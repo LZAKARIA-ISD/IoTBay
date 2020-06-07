@@ -6,6 +6,7 @@
 
 <%@page import="isd.wsd.Customer"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<jsp:include page="/ConnServlet"/>
 <!DOCTYPE html>
 <html>
     <head>
@@ -23,6 +24,7 @@
             <div class="navigation">
                 <h3><a href="index.jsp" class="logo-text">IoTBay</a></h3>
                 <div class="inner-nav">
+                    <a href="ProductCollectionServlet" class="btn btn-outline-primary mr-2">Products</a>
                     <% if(customer == null) { %>
                     <a href="login.jsp" role="button" class="btn btn-light" >Login</a>
                     <a href="register.jsp" role="button" class="btn btn-primary">Register</a>
@@ -42,14 +44,12 @@
                         <th>Email</th>
                         <th>Password</th>
                         <th>Phone Number</th>
-                        <th>Date of Birth</th>
                     </tr>
                     <tr>
                         <td>${customer.name}</td>
                         <td>${customer.email}</td>
                         <td>${customer.password}</td>
                         <td>${customer.phone}</td>
-                        <td class="text-capitalize">${customer.dob}</td>
                     </tr>
                 </table>
                 </div>

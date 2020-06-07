@@ -12,6 +12,5 @@ CREATE TABLE CUSTOMERS (
     CusEmail varchar(50) NOT NULL PRIMARY KEY,
     CusName varchar (50),
     CusPassword varchar (20),
-    CusPhone varchar (13),
-    CusDOB varchar (10)
+    CusPhone varchar (13)
 )

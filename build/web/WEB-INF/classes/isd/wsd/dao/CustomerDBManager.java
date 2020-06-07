@@ -34,9 +34,9 @@ public class CustomerDBManager {
             if (customerEmail.equals(email) && customerPass.equals(password)){
                 String customerName = rs.getString(2);
                 String customerPhone = rs.getString(4);
-                String customerDOB = rs.getString(5);
+                String customerType = "Customer";
                 
-                return new Customer(customerEmail, customerName, customerPass, customerPhone, customerDOB);
+                return new Customer(customerEmail, customerName, customerPass, customerPhone, customerType);
             }
         }
         
@@ -44,8 +44,8 @@ public class CustomerDBManager {
     }
     
     //create
-    public void addCustomer(String email, String name, String password, String phone, String dob ) throws SQLException {
-        st.executeUpdate("INSERT INTO ISDSTAFF.CUSTOMERS " + "VALUES ('" + email +"', '" + name + "', '" + password + "', '" + phone + "', '" + dob + "')");
+    public void addCustomer(String email, String name, String password, String phone, String type ) throws SQLException {
+        st.executeUpdate("INSERT INTO ISDSTAFF.CUSTOMERS " + "VALUES ('" + email +"', '" + name + "', '" + password + "', '" + phone + ")");
     }
     
     //update
