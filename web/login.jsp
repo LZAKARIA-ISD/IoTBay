@@ -6,6 +6,7 @@
 <%@page import="isd.wsd.Customer"%>
 <%@page import="isd.controller.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<jsp:include page="/CustomerConnServlet"/>
 <!DOCTYPE html>
 <html>
     <head>
@@ -53,7 +54,6 @@
                           <label for="password">Password</label>
                           <input type="password" class="form-control" id="password" name="password" placeholder="<%=(passErr != null ? passErr : "Enter Password")%>">
                         </div>
-                    
                           <input type="hidden" name="objtype" value="login" />
                           <div class="text-center">
                               <button type="submit" class="btn btn-primary ">Log in</button>
@@ -62,6 +62,5 @@
                     </div>
                 </div>
             </div>
-            
         </div>
 </html>

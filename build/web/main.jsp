@@ -6,6 +6,7 @@
 
 <%@page import="isd.wsd.Customer"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<jsp:include page="/ConnServlet"/>
 <!DOCTYPE html>
 <html>
     <head>
@@ -43,14 +44,12 @@
                         <th>Email</th>
                         <th>Password</th>
                         <th>Phone Number</th>
-                        <th>Date of Birth</th>
                     </tr>
                     <tr>
                         <td>${customer.name}</td>
                         <td>${customer.email}</td>
                         <td>${customer.password}</td>
                         <td>${customer.phone}</td>
-                        <td class="text-capitalize">${customer.dob}</td>
                     </tr>
                 </table>
                 </div>

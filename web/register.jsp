@@ -5,6 +5,7 @@
 --%>
 <%@page import="isd.wsd.Customer"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<jsp:include page="/CustomerConnServlet"/>
 <!DOCTYPE html>
 <html>
     <head>
@@ -44,7 +45,7 @@
             <div class="register">
                 <div class="card">
                     <div class="card-body">
-                      <form method="POST" action="welcome.jsp">
+                      <form method="POST" action="RegisterServlet">
                         <div class="form-group">
                           <label for="name">Full Name</label>
                           <input type="text" class="form-control" id="name" name="name" placeholder="<%=(nameErr != null ? nameErr : "Enter Name")%>">
@@ -60,10 +61,6 @@
                           <div class="form-group">
                             <label for="phone">Phone Number</label>
                             <input type="tel" class="form-control" id="phone" name="phone" placeholder="Enter Phone Number">
-                          </div>
-                          <div class="form-group">
-                            <label for="dob">Date of Birth</label>
-                            <input type="date" class="form-control" id="dob" name="dob">
                           </div>
                           <hr>
                         <div class="form-group custom-control custom-checkbox pt-2">

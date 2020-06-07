@@ -20,7 +20,7 @@
             String name = request.getParameter("name");
             String password = request.getParameter("password");
             String phone = request.getParameter("phone");
-            String dob = request.getParameter("dob");
+            String type = request.getParameter("type");
             String tos = request.getParameter("tos");
             String objtype = request.getParameter("objtype");
             
@@ -29,7 +29,7 @@
             
             if( (tos != null && tos.equals("tos")) || (objtype != null && objtype.equals("login")) || customer != null) {
                 if(customer == null){
-                    customer = new Customer(email,name,password,phone,dob);
+                    customer = new Customer(email,password,name,phone,type);
                     session.setAttribute("customer",customer);
                 }
         %>

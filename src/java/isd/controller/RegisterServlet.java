@@ -10,6 +10,8 @@ import isd.wsd.dao.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -30,7 +32,7 @@ public class RegisterServlet extends HttpServlet {
         String password = request.getParameter("password");
         String name = request.getParameter("name");
         String phone = request.getParameter("phone");
-        String dob = request.getParameter("dob");
+        String type = "Customer";   
         
         CustomerDBManager manager = (CustomerDBManager) session.getAttribute("manager");
         validator.clear(session);
@@ -47,16 +49,17 @@ public class RegisterServlet extends HttpServlet {
        } else {
            try {
                Customer exist = manager.findCustomer(email, password);
-               if (exist !=null) {
+               if (exist != null) {
                    session.setAttribute("existErr", "Customer already in the Database!") ;
-                   request.getRequestDispatcher("login.jsp").include(request, response);
+                   request.getRequestDispatcher("register.jsp").include(request, response);
                } else {
-                   manager.addCustomer(email, name, password, phone, dob);
+                   manager.addCustomer(email, name, password, phone, type);
+                   Customer customer = new Customer(email, name, password, phone, type);
+                   session.setAttribute("customer", customer);
+                   request.getRequestDispatcher("main.jsp").include(request, response);
                }
-           } catch (SQLException | NullPointerException ex) {
-               System.out.println(ex.getMessage() == null ? "Customer does not exist" : "welcome");
-               session.setAttribute("existErr", "Customer already in the Database!") ;
-               request.getRequestDispatcher("register.jsp").include(request, response);
+           } catch (SQLException ex) {
+               Logger.getLogger(RegisterServlet.class.getName()).log(Level.SEVERE, null, ex);
            }
        }
     }
