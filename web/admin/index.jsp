@@ -13,7 +13,7 @@
         
        <link rel="stylesheet" href="../css/bootstrap.min.css">
         <link rel="stylesheet" href="../css/style.css" />
-        <title>IoTBay - Main Page</title>
+        <title>IoTBay - Admin Panel</title>
     </head>
     <body>
         <%

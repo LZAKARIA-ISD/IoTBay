@@ -11,23 +11,12 @@ package isd.wsd;
  */
 public class Admin {
 
-    //if no db result for username and password, use default admin and password.
-    private final String defaultUsername = "admin";
-    private final String defaultPassword = "password";
     private String username;
     private String password;
 
     public Admin(String username, String password) {
         this.username = username;
         this.password = password;
-    }
-
-    public String getDefaultUsername() {
-        return defaultUsername;
-    }
-
-    public String getDefaultPassword() {
-        return defaultPassword;
     }
 
     public String getUsername() {
