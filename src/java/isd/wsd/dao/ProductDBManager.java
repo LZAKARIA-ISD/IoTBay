@@ -26,7 +26,7 @@ public ProductDBManager(Connection conn) throws SQLException {
 //Find product by id  
 public Product findProduct(int id) throws SQLException {       
     
-   String fetch = "SELECT * FROM SAM.PRODUCTS WHERE product_id=" + id;
+   String fetch = "SELECT * FROM ISDSTAFF.PRODUCTS WHERE product_id=" + id;
     ResultSet rs = st.executeQuery(fetch);
   
     while(rs.next()){
@@ -44,23 +44,23 @@ public Product findProduct(int id) throws SQLException {
 
 //Add a product into the database   
 public void addProduct(String name, String detail, String type, String price, String quantity) throws SQLException {                         
-  st.executeUpdate("INSERT INTO SAM.PRODUCTS (NAME, DETAIL, TYPE, PRICE, QUANTITY) VALUES ('" + name + "', '" + detail + "', '" + type + "', " + price + ", " + quantity + ")");   
+  st.executeUpdate("INSERT INTO ISDSTAFF.PRODUCTS (NAME, DETAIL, TYPE, PRICE, QUANTITY) VALUES ('" + name + "', '" + detail + "', '" + type + "', " + price + ", " + quantity + ")");   
 
 }
 
 //update a product in the database   
 public void updateProduct(String id, String name, String detail, String type, String price, String quantity) throws SQLException {        
-   st.executeUpdate("UPDATE SAM.PRODUCTS SET name='" + name + "', detail='" + detail + "', type='" + type + "', price=" + price + ", quantity=" + quantity + " WHERE product_id=" + id);
+   st.executeUpdate("UPDATE ISDSTAFF.PRODUCTS SET name='" + name + "', detail='" + detail + "', type='" + type + "', price=" + price + ", quantity=" + quantity + " WHERE product_id=" + id);
 }       
 
 //delete a product from the database   
 public void deleteProduct(int id) throws SQLException{          
-   st.executeUpdate("DELETE FROM SAM.PRODUCTS WHERE product_id=" + id);
+   st.executeUpdate("DELETE FROM ISDSTAFF.PRODUCTS WHERE product_id=" + id);
 }
 
 //search for a product in the database by name or type
 public ArrayList<Product> searchProducts(String search) throws SQLException{
-    String fetch = "SELECT * FROM SAM.PRODUCTS WHERE LOWER(name) LIKE LOWER('%" + search + "%') OR LOWER(type) LIKE LOWER('%" + search + "%')";
+    String fetch = "SELECT * FROM ISDSTAFF.PRODUCTS WHERE LOWER(name) LIKE LOWER('%" + search + "%') OR LOWER(type) LIKE LOWER('%" + search + "%')";
     ResultSet rs = st.executeQuery(fetch);
     ArrayList<Product> temp = new ArrayList();
     
@@ -79,7 +79,7 @@ public ArrayList<Product> searchProducts(String search) throws SQLException{
 
 //fetch all products from the database
 public ArrayList<Product> fetchProducts() throws SQLException{
-    String fetch = "SELECT * FROM SAM.PRODUCTS";
+    String fetch = "SELECT * FROM ISDSTAFF.PRODUCTS";
     ResultSet rs = st.executeQuery(fetch);
     ArrayList<Product> temp = new ArrayList();
     
