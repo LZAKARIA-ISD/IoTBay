@@ -12,7 +12,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/style.css" />
-        <title>IoTBay - Logging out...</title>
+        <title>IoTBay - Login</title>
     </head>
     <body>
         <%

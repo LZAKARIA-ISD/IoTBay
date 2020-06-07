@@ -4,7 +4,7 @@
     Author     : lucas
 --%>
 
-<%@page import="isd.wsd.Customer"%>
+<%@page import="isd.wsd.Admin"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -17,7 +17,11 @@
     </head>
     <body>
         <%
-            Customer customer = (Customer)session.getAttribute("customer");
+            Admin admin = (Admin)session.getAttribute("admin");
+            
+            if(admin == null) {
+                response.sendRedirect("login.jsp");
+            }
         %>
         <div class="container">
             <div class="navigation">

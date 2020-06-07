@@ -25,21 +25,11 @@ public class CustomerDBManager {
     
     //read
     public Customer findCustomer(String email, String password) throws SQLException {
-<<<<<<< HEAD
-<<<<<<< HEAD
         String read = "SELECT * FROM ISDSTAFF.CUSTOMERS WHERE CUSEMAIL = '" + email + "' AND CUSPASSWORD = '" + password + "'";
-=======
-        String read = "SELECT * FROM ISDSTAFF.CUSTOMER WHERE CUSEMAIL="+email+" AND CUSPASSWORD="+password;
->>>>>>> 5bbc72751c30e956fe1fed2303de06a0cb7db626
-=======
-        String read = "SELECT * FROM ISDSTAFF.CUSTOMER WHERE CUSEMAIL="+email+" AND CUSPASSWORD="+password;
->>>>>>> 5bbc72751c30e956fe1fed2303de06a0cb7db626
         ResultSet rs = st.executeQuery(read);
         
         while (rs.next()){
             String customerEmail = rs.getString(1);
-<<<<<<< HEAD
-<<<<<<< HEAD
             String customerPass = rs.getString(3);
             if (customerEmail.equals(email) && customerPass.equals(password)){
                 String customerName = rs.getString(2);
@@ -47,20 +37,6 @@ public class CustomerDBManager {
                 String customerDOB = rs.getString(5);
                 
                 return new Customer(customerEmail, customerName, customerPass, customerPhone, customerDOB);
-=======
-=======
->>>>>>> 5bbc72751c30e956fe1fed2303de06a0cb7db626
-            String customerPass = rs.getString(5);
-            if (customerEmail.equals(email) && customerPass.equals(password)){
-                String customerName = rs.getString(2);
-                String customerGender = rs.getString(3);
-                String customerDOB = rs.getString(4);
-                
-                return new Customer(customerEmail, customerName, customerPass, customerDOB, customerGender);
-<<<<<<< HEAD
->>>>>>> 5bbc72751c30e956fe1fed2303de06a0cb7db626
-=======
->>>>>>> 5bbc72751c30e956fe1fed2303de06a0cb7db626
             }
         }
         
@@ -68,8 +44,6 @@ public class CustomerDBManager {
     }
     
     //create
-<<<<<<< HEAD
-<<<<<<< HEAD
     public void addCustomer(String email, String name, String password, String phone, String dob ) throws SQLException {
         st.executeUpdate("INSERT INTO ISDSTAFF.CUSTOMERS " + "VALUES ('" + email +"', '" + name + "', '" + password + "', '" + phone + "', '" + dob + "')");
     }
@@ -77,90 +51,35 @@ public class CustomerDBManager {
     //update
     public void updateCustomer(String email, String name, String password, String phone, String dob) throws SQLException {
         st.executeUpdate("UPDATE ISDSTAFF.CUSTOMERS SET CUSNAME='" + name + "', CUSPASSWORD='" + password + "', CUSPHONE='" + phone + "', CUSDOB='" + dob + "' WHERE CUSEMAIL='" + email + "'");
-=======
-=======
->>>>>>> 5bbc72751c30e956fe1fed2303de06a0cb7db626
-    public void addCustomer(String email, String name, String password, String dob, String gender) throws SQLException {
-        st.executeUpdate("INSERT INTO ISDSTAFF.CUSTOMER " + "VALUES ('" + email +"', '" + name + "', '" + gender + "', '" + dob + "', '" + password + "')");
-    }
-    
-    //update
-    public void updateCustomer(String email, String name, String password, String dob, String gender) throws SQLException {
-        st.executeUpdate("UPDATE ISDSTAFF.CUSTOMER SET CUSNAME='" + name + "', CUSPASSWORD='" + password + "', CUSGENDER='" + gender + "', CUSDOB='" + dob + "' WHERE CUSEMAIL='" + email + "'");
-<<<<<<< HEAD
->>>>>>> 5bbc72751c30e956fe1fed2303de06a0cb7db626
-=======
->>>>>>> 5bbc72751c30e956fe1fed2303de06a0cb7db626
     }
     
     //delete
     public void deleteCustomer(String email) throws SQLException {
-<<<<<<< HEAD
-<<<<<<< HEAD
         st.executeUpdate("DELETE FROM ISDSTAFF.CUSTOMERS WHERE CUSEMAIL='" + email + "'");
     }
     
     public ArrayList<Customer> fetchCustomer() throws SQLException {
         String fetch = "SELECT * FROM CUSTOMERS";
-=======
-=======
->>>>>>> 5bbc72751c30e956fe1fed2303de06a0cb7db626
-        st.executeUpdate("DELETE FROM ISDSTAFF.CUSTOMER WHERE CUSEMAIL='" + email + "'");
-    }
-    
-    public ArrayList<Customer> fetchCustomer() throws SQLException {
-        String fetch = "SELECT * FROM CUSTOMER";
-<<<<<<< HEAD
->>>>>>> 5bbc72751c30e956fe1fed2303de06a0cb7db626
-=======
->>>>>>> 5bbc72751c30e956fe1fed2303de06a0cb7db626
         ResultSet rs = st.executeQuery(fetch);
         ArrayList<Customer> temp = new ArrayList();
         
         while (rs.next()){
             String email = rs.getString(1);
             String name = rs.getString(2);
-<<<<<<< HEAD
-<<<<<<< HEAD
             String password = rs.getString(3);
             String phone = rs.getString(4);
             String dob = rs.getString(5);
             temp.add(new Customer(email, name, password, phone, dob));
-=======
-=======
->>>>>>> 5bbc72751c30e956fe1fed2303de06a0cb7db626
-            String gender = rs.getString(3);
-            String dob = rs.getString(4);
-            String password = rs.getString(5);
-            temp.add(new Customer(email, name, password, dob, gender));
-<<<<<<< HEAD
->>>>>>> 5bbc72751c30e956fe1fed2303de06a0cb7db626
-=======
->>>>>>> 5bbc72751c30e956fe1fed2303de06a0cb7db626
         }
         return temp;
     }
     
     public boolean checkCustomer(String email, String password) throws SQLException {
-<<<<<<< HEAD
-<<<<<<< HEAD
         String fetch = "SELECT * FROM ISDSTAFF.CUSTOMERS WHERE CUSEMAIL = '" + email + "' AND CUSPASSWORD='" + password + "'";
         ResultSet rs = st.executeQuery(fetch);
         
         while (rs.next()){
             String customerEmail = rs.getString(1);
-=======
-=======
->>>>>>> 5bbc72751c30e956fe1fed2303de06a0cb7db626
-        String fetch = "SELECT * FROM ISDSTAFF.CUSTOMER WHERE CUSEMAIL = '" + email + "' AND CUSPASSWORD='" + password + "'";
-        ResultSet rs = st.executeQuery(fetch);
-        
-        while (rs.next()){
-            String customerEmail = rs.getString(2);
-<<<<<<< HEAD
->>>>>>> 5bbc72751c30e956fe1fed2303de06a0cb7db626
-=======
->>>>>>> 5bbc72751c30e956fe1fed2303de06a0cb7db626
             String customerPass = rs.getString(3);
             if (customerEmail.equals(email) && customerPass.equals(password)) {
             return true;

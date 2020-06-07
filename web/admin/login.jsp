@@ -9,9 +9,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/style.css" />
-        <title>IoTBay - Logging out...</title>
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/style.css" />
+        <title>IoTBay - Login</title>
     </head>
     <body>
         <%
@@ -25,7 +25,6 @@
                 <div class="inner-nav">
                     <% if(admin == null) { %>
                     <a href="login.jsp" role="button" class="btn btn-light" >Login</a>
-                    <a href="register.jsp" role="button" class="btn btn-primary">Register</a>
                     <% } else { %>
                     <a href="main.jsp" role="button" class="btn btn-primary">Main</a>
                     <a href="logout.jsp" role="button" class="btn btn-link">Log out</a>
@@ -36,6 +35,7 @@
             <div class="register">
                 <div class="card">
                     <div class="card-body">
+                        <% if (admin == null) { %>
                       <form method="POST" action="welcome.jsp">
                         <div class="form-group">
                           <label for="username">Username</label>
@@ -51,6 +51,11 @@
                               <button type="submit" class="btn btn-primary ">Log in</button>
                           </div>
                       </form>
+                      
+                      <% } else { %>
+                        <a href="main.jsp" role="button" class="btn btn-primary">Continue as Admin</a>
+                        <a href="logout.jsp" role="button" class="btn btn-link">Log out</a>
+                       <% } %>
                     </div>
                 </div>
             </div>
