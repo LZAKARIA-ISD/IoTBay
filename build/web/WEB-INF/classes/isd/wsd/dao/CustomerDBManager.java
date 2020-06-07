@@ -36,9 +36,9 @@ public class CustomerDBManager {
                 String customerName = rs.getString(2);
                 String customerPhone = rs.getString(4);
 
-                String customerType = rs.getString(6);
+                String customerType = rs.getString(5);
 
-                return new Customer(customerEmail, customerName, customerPass, customerPhone, customerType);
+                return new Customer(customerEmail, customerPass, customerName, customerPhone, customerType);
             }
         }
 
@@ -70,8 +70,7 @@ public class CustomerDBManager {
             String name = rs.getString(2);
             String password = rs.getString(3);
             String phone = rs.getString(4);
-            String dob = rs.getString(5);
-            String customerType = rs.getString(6);
+            String customerType = rs.getString(5);
             temp.add(new Customer(email, name, password, phone, customerType));
         }
         return temp;

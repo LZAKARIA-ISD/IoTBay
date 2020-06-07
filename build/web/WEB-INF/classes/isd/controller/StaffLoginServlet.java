@@ -35,22 +35,24 @@ public class StaffLoginServlet extends HttpServlet {
         
         if (!validator.validateEmail(email)){
              session.setAttribute("emailErr", "Error: Email format incorrect");
-           request.getRequestDispatcher("login.jsp").include(request, response);
+           request.getRequestDispatcher("staff/login.jsp").include(request, response);
        } else if (!validator.validatePassword(password)) {
            session.setAttribute("passErr", "Error: Password format incorrect");
-           request.getRequestDispatcher("login.jsp").include(request, response);
+           request.getRequestDispatcher("staff/login.jsp").include(request, response);
        } else {
            try {
                staff = manager.findStaff(email, password);
                if (staff !=null) {
                    session.setAttribute("staff", staff);
-                   request.getRequestDispatcher("main.jsp").include(request, response);
+                   request.getRequestDispatcher("staff/main.jsp").include(request, response);
                } else {
                    session.setAttribute("existErr", "Staff does not exist in the Database!") ;
-                   request.getRequestDispatcher("login.jsp").include(request, response);
+                   request.getRequestDispatcher("staff/login.jsp").include(request, response);
                }
            } catch (SQLException | NullPointerException ex) {
                System.out.println(ex.getMessage() == null ? "Staff does not exist" : "welcome");
+               session.setAttribute("existErr", "Staff does not exist in the Database!") ;
+               request.getRequestDispatcher("staff/login.jsp").include(request, response);
            }
        }
     }

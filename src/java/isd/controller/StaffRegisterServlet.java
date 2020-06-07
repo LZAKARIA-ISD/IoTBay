@@ -10,6 +10,8 @@ import isd.wsd.dao.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -20,7 +22,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author chris
  */
-public class StaffLoginServlet extends HttpServlet {
+public class StaffRegisterServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)   throws ServletException, IOException {
@@ -28,35 +30,39 @@ public class StaffLoginServlet extends HttpServlet {
         Validator validator = new Validator();
         String email = request.getParameter("email");
         String password = request.getParameter("password");
+        String name = request.getParameter("name");
+        String phone = request.getParameter("phone");
+        String type = "Staff";   
         
         StaffDBManager manager = (StaffDBManager) session.getAttribute("manager");
-        Staff staff = null;
         validator.clear(session);
         
         if (!validator.validateEmail(email)){
-             session.setAttribute("emailErr", "Error: Email format incorrect");
-           request.getRequestDispatcher("staff/login.jsp").include(request, response);
+           session.setAttribute("emailErr", "Error: Email format incorrect");
+           request.getRequestDispatcher("staff/register.jsp").include(request, response);
+       } else if (!validator.validateName(name)) {
+           session.setAttribute("nameErr", "Error: Name format incorrect");
+           request.getRequestDispatcher("staff/register.jsp").include(request, response);
        } else if (!validator.validatePassword(password)) {
            session.setAttribute("passErr", "Error: Password format incorrect");
-           request.getRequestDispatcher("staff/login.jsp").include(request, response);
+           request.getRequestDispatcher("staff/register.jsp").include(request, response);
        } else {
            try {
-               staff = manager.findStaff(email, password);
-               if (staff !=null) {
+               Staff exist = manager.findStaff(email, password);
+               if (exist != null) {
+                   session.setAttribute("existErr", "Staff already in the Database!") ;
+                   request.getRequestDispatcher("staff/register.jsp").include(request, response);
+               } else {
+                   manager.addStaff(email, name, password, phone, type);
+                   Staff staff = new Staff(email, name, password, phone, type);
                    session.setAttribute("staff", staff);
                    request.getRequestDispatcher("staff/main.jsp").include(request, response);
-               } else {
-                   session.setAttribute("existErr", "Staff does not exist in the Database!") ;
-                   request.getRequestDispatcher("staff/login.jsp").include(request, response);
                }
-           } catch (SQLException | NullPointerException ex) {
-               System.out.println(ex.getMessage() == null ? "Staff does not exist" : "welcome");
-               session.setAttribute("existErr", "Staff does not exist in the Database!") ;
-               request.getRequestDispatcher("staff/login.jsp").include(request, response);
+           } catch (SQLException ex) {
+               Logger.getLogger(RegisterServlet.class.getName()).log(Level.SEVERE, null, ex);
            }
        }
     }
-    
     
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -75,12 +81,15 @@ public class StaffLoginServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet StaffLoginServlet</title>");            
+            out.println("<title>Servlet RegisterServlet</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet StaffLoginServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet RegisterServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
     }
+
+
+
 }
