@@ -13,8 +13,8 @@ public class Customer extends User {
 
     private String type;
 
-    public Customer(String email, String password, String name, String phone, String dob, String type) {
-        super(email, password, name, phone, dob);
+    public Customer(String email, String password, String name, String phone, String type) {
+        super(email, password, name, phone);
         this.type = type;
     }
 

@@ -24,46 +24,46 @@ import javax.servlet.http.HttpSession;
  */
 public class RegisterServlet extends HttpServlet {
 
-     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)   throws ServletException, IOException {
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         Validator validator = new Validator();
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         String name = request.getParameter("name");
         String phone = request.getParameter("phone");
-        String type = "Customer";   
-        
+        String type = request.getParameter("type");
+
         CustomerDBManager manager = (CustomerDBManager) session.getAttribute("manager");
         validator.clear(session);
-        
-        if (!validator.validateEmail(email)){
-           session.setAttribute("emailErr", "Error: Email format incorrect");
-           request.getRequestDispatcher("register.jsp").include(request, response);
-       } else if (!validator.validateName(name)) {
-           session.setAttribute("nameErr", "Error: Name format incorrect");
-           request.getRequestDispatcher("register.jsp").include(request, response);
-       } else if (!validator.validatePassword(password)) {
-           session.setAttribute("passErr", "Error: Password format incorrect");
-           request.getRequestDispatcher("register.jsp").include(request, response);
-       } else {
-           try {
-               Customer exist = manager.findCustomer(email, password);
-               if (exist != null) {
-                   session.setAttribute("existErr", "Customer already in the Database!") ;
-                   request.getRequestDispatcher("register.jsp").include(request, response);
-               } else {
-                   manager.addCustomer(email, name, password, phone, type);
-                   Customer customer = new Customer(email, name, password, phone, type);
-                   session.setAttribute("customer", customer);
-                   request.getRequestDispatcher("main.jsp").include(request, response);
-               }
-           } catch (SQLException ex) {
-               Logger.getLogger(RegisterServlet.class.getName()).log(Level.SEVERE, null, ex);
-           }
-       }
+
+        if (!validator.validateEmail(email)) {
+            session.setAttribute("emailErr", "Error: Email format incorrect");
+            request.getRequestDispatcher("register.jsp").include(request, response);
+        } else if (!validator.validateName(name)) {
+            session.setAttribute("nameErr", "Error: Name format incorrect");
+            request.getRequestDispatcher("register.jsp").include(request, response);
+        } else if (!validator.validatePassword(password)) {
+            session.setAttribute("passErr", "Error: Password format incorrect");
+            request.getRequestDispatcher("register.jsp").include(request, response);
+        } else {
+            try {
+                Customer exist = manager.findCustomer(email, password);
+                if (exist != null) {
+                    session.setAttribute("existErr", "Customer already in the Database!");
+                    request.getRequestDispatcher("register.jsp").include(request, response);
+                } else {
+                    manager.addCustomer(email, name, password, phone, type);
+                    Customer customer = new Customer(email, name, password, phone, type);
+                    session.setAttribute("customer", customer);
+                    request.getRequestDispatcher("main.jsp").include(request, response);
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(RegisterServlet.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }
-    
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -81,7 +81,7 @@ public class RegisterServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet RegisterServlet</title>");            
+            out.println("<title>Servlet RegisterServlet</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet RegisterServlet at " + request.getContextPath() + "</h1>");
@@ -89,7 +89,5 @@ public class RegisterServlet extends HttpServlet {
             out.println("</html>");
         }
     }
-
-
 
 }

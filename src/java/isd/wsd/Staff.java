@@ -13,8 +13,8 @@ public class Staff extends User {
 
     private String position;
 
-    public Staff(String email, String password, String name, String phone, String dob, String position) {
-        super(email, password, name, phone, dob);
+    public Staff(String email, String password, String name, String phone, String position) {
+        super(email, password, name, phone);
         this.position = position;
     }
 
