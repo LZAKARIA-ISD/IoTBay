@@ -36,9 +36,9 @@ public class CustomerDBManager {
                 String customerName = rs.getString(2);
                 String customerPhone = rs.getString(4);
 
-                String customerType = rs.getString(6);
+                String customerType = rs.getString(5);
 
-                return new Customer(customerEmail, customerName, customerPass, customerPhone, customerType);
+                return new Customer(customerEmail, customerPass, customerName, customerPhone, customerType);
             }
         }
 

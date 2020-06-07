@@ -7,7 +7,7 @@
 <%@page import="isd.wsd.Staff"%>
 <%@page import="isd.controller.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<jsp:include page="/StaffConnServlet"/> 
+<jsp:include page="StaffConnServlet.java"/> 
 <!DOCTYPE html>
 <html>
     <head>
