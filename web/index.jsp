@@ -32,12 +32,12 @@
                     <% } else { %>
                     <a href="main.jsp" role="button" class="btn btn-primary">Continue as ${customer.name != null ? customer.name : customer.email}</a>
                     <a href="logout.jsp" role="button" class="btn btn-link">Log out</a>
-                    
+                    <% } %>
                     <hr>
                     
                     <h5><i>Quick links</i></h5>
-                    <div>Products, orders, etc ??</div>
-                    <% } %>
+                    <div>Products, orders, etc ??</div>                  
+                    <a href="ProductCollectionServlet">Products - Temp Link</a>
                 </div>
             </div>
         </div>
