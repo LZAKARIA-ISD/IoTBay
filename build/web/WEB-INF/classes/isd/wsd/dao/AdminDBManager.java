@@ -26,7 +26,6 @@ public class AdminDBManager {
 
     public Admin findAdmin(String username, String password) throws SQLException {
         String read = "SELECT * FROM ISDSTAFF.ADMINUSERS WHERE USERNAME='" + username + "' AND PASSWORD='" + password + "'";
-        System.out.println(read);
         ResultSet rs = st.executeQuery(read);
 
         while (rs.next()) {

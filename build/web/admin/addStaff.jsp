@@ -5,7 +5,7 @@
 --%>
 
 <%@page import="isd.wsd.Admin"%>
-<%@page import="isd.wsd.Customer"%>
+<%@page import="isd.wsd.Staff"%>
 <%@page import="isd.controller.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -13,10 +13,10 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         
-        <link rel="stylesheet" href="../css/bootstrap.min.css">
+       <link rel="stylesheet" href="../css/bootstrap.min.css">
         <link rel="stylesheet" href="../css/style.css" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>IoTBay - Add Customer</title>
+        <title>IoTBay - Add Staff</title>
     </head>
     <body>
         <%
@@ -36,27 +36,27 @@
                 </div>
             </div>
             <div class="text-center">
-                <h1 class="display-4">Add Customer</h1>
+                <h1 class="display-4">Add Staff Member</h1>
                 <%
                     String existErr = (String) session.getAttribute("existErr");
                     String emailErr = (String) session.getAttribute("emailErr");
                     String nameErr = (String) session.getAttribute("nameErr");
                     String passErr = (String) session.getAttribute("passErr");
-                    String customerAdded = (String) session.getAttribute("customerAdded");
+                    String staffAdded = (String) session.getAttribute("staffAdded");
                     System.out.println("exist = "+existErr);
-                    session.setAttribute("customerAdded", null);
+                    session.setAttribute("staffAdded", null);
                 %>
                 
-                <% if(customerAdded != null){ %>
+                <% if(staffAdded != null){ %>
                     <div class="alert alert-success" role="alert">
-                        Customer "<%=customerAdded%>" was successfully added!
+                        Staff Member "<%=staffAdded%>" was successfully added!
                     </div>
                 <% } %>
               
             <div class="register text-left">
                 <div class="card">
                     <div class="card-body">
-                      <form method="POST" action="AddCustomerServlet">
+                      <form method="POST" action="AddStaffServlet">
                         <div class="form-group">
                           <label for="name">Full Name</label>
                           <input type="text" class="form-control" id="name" name="name" placeholder="<%=(nameErr != null ? nameErr : "Enter Name")%>">
@@ -74,14 +74,11 @@
                             <input type="tel" class="form-control" id="phone" name="phone" placeholder="Enter Phone Number">
                           </div>
                         <div class="form-group">
-                            <label for="type">Type</label>
-                            <select class="form-control" id="type" name="type">
-                                <option value="individual">Individual</option>
-                                <option value="company">Company</option>
-                            </select>
+                            <label for="position">Position</label>
+                            <input type="text" class="form-control" id="position" name="position" placeholder="Enter Staff Position">
                           </div>
                           <div class="text-center">
-                              <button type="submit" class="btn btn-success ">Add Customer</button>
+                              <button type="submit" class="btn btn-success ">Add Staff Member</button>
                           </div>
                       </form>
                     </div>

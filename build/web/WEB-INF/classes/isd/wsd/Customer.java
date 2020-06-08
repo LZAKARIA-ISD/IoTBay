@@ -22,6 +22,14 @@ public class Customer extends User {
         return type;
     }
 
+    public boolean isIndividual() {
+        return type.equals("individual");
+    }
+
+    public boolean isCompany() {
+        return type.equals("company");
+    }
+
     public void setType(String type) {
         this.type = type;
     }

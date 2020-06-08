@@ -21,6 +21,7 @@
     <body>
         <%
             Admin admin = (Admin)session.getAttribute("admin");
+            Customer customer = (Customer)session.getAttribute("customerEdit");
                         
             if(admin == null) {
                 response.sendRedirect("login.jsp");

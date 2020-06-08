@@ -62,9 +62,9 @@
                           </div>
                         <div class="form-group">
                             <label for="type">Type</label>
-                            <select class="form-control" id="type" name="type" value="${customer.type}">
-                                <option value="individual">Individual</option>
-                                <option value="Company">Company</option>
+                            <select class="form-control" id="type" name="type">
+                                <option value="individual" <%=customer.isIndividual() ? "selected" : ""%>>Individual</option>
+                                <option value="company" <%=customer.isCompany() ? "selected" : ""%>>Company</option>
                             </select>
                           </div>
                           <hr>
