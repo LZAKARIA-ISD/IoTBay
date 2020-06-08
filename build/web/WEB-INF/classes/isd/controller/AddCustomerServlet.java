@@ -48,9 +48,7 @@ public class AddCustomerServlet extends HttpServlet {
             request.getRequestDispatcher("addCustomer.jsp").include(request, response);
         } else {
             try {
-                System.out.println("test1");
                 Customer exist = manager.findCustomer(email, password);
-                System.out.println("test2");
                 if (exist != null) {
                     session.setAttribute("existErr", "Customer already in the Database!");
                     request.getRequestDispatcher("addCustomer.jsp").include(request, response);

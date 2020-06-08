@@ -56,6 +56,8 @@
     <servlet>
         <servlet-name>AddCustomerServlet</servlet-name>
         <servlet-class>isd.controller.AddCustomerServlet</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>LogoutServlet</servlet-name>
         <servlet-class>isd.controller.LogoutServlet</servlet-class>
         <load-on-startup>0</load-on-startup>

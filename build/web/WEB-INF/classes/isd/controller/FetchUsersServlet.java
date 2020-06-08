@@ -42,12 +42,8 @@ public class FetchUsersServlet extends HttpServlet {
         ArrayList<Staff> staff = new ArrayList();
         ArrayList<User> users = new ArrayList();
 
-        System.out.println("Is fetch users even being called???????");
-
         try {
-            System.out.println("test1");
             customers = customerManager.fetchCustomers();
-            System.out.println("test3");
             staff = staffManager.fetchStaff();
             System.out.println("Called");
             if (search != null) {
@@ -69,8 +65,6 @@ public class FetchUsersServlet extends HttpServlet {
                 users.addAll(customers);
                 users.addAll(staff);
             }
-
-            System.out.println("Users size = " + users.size());
 
             if (users.size() > 0) {
                 session.setAttribute("users", users);
