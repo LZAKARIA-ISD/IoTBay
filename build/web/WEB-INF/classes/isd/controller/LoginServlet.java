@@ -63,8 +63,6 @@ public class LoginServlet extends HttpServlet {
                 }
             } catch (SQLException | NullPointerException ex) {
                 System.out.println(ex.getMessage() == null ? "User does not exist" : "welcome");
-                session.setAttribute("existErr", "User does not exist in the Database!");
-                request.getRequestDispatcher("login.jsp").include(request, response);
             }
         }
     }
