@@ -55,7 +55,7 @@ public class UpdateUserServlet extends HttpServlet {
                 request.getRequestDispatcher("edit.jsp").include(request, response);
             } else if (staff != null) {
                 staffManager.updateStaff(email, password, name, phone, pos);
-                staff = new Staff(email, password, name, phone, type);
+                staff = new Staff(email, password, name, phone, pos);
                 session.setAttribute("staff", staff);
                 session.setAttribute("updated", "Update was successful");
                 request.getRequestDispatcher("edit.jsp").include(request, response);
