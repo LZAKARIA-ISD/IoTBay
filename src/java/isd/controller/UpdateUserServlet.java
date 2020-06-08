@@ -31,11 +31,12 @@ public class UpdateUserServlet extends HttpServlet {
             throws ServletException, IOException {
         HttpSession session = request.getSession();
         String email = request.getParameter("email");
+        String oldPassword = request.getParameter("oldPassword");
         String password = request.getParameter("password");
         String name = request.getParameter("name");
         String phone = request.getParameter("phone");
         String type = request.getParameter("type");
-        String pos = request.getParameter("pos");
+        String pos = request.getParameter("position");
 
         
 
@@ -43,8 +44,8 @@ public class UpdateUserServlet extends HttpServlet {
         StaffDBManager staffManager = (StaffDBManager) session.getAttribute("staffManager");
 
         try {
-            Customer customer = customerManager.findCustomer(email, password);
-            Staff staff = staffManager.findStaff(email, password);
+            Customer customer = customerManager.findCustomer(email, oldPassword);
+            Staff staff = staffManager.findStaff(email, oldPassword);
 
             if (customer != null) {
                 customerManager.updateCustomer(email, password, name, phone, type);
@@ -53,8 +54,8 @@ public class UpdateUserServlet extends HttpServlet {
                 session.setAttribute("updated", "Update was successful");
                 request.getRequestDispatcher("edit.jsp").include(request, response);
             } else if (staff != null) {
-                staffManager.updateStaff(email, name, password, phone, pos);
-                staff = new Staff(email, password, name, phone, type);
+                staffManager.updateStaff(email, password, name, phone, pos);
+                staff = new Staff(email, password, name, phone, pos);
                 session.setAttribute("staff", staff);
                 session.setAttribute("updated", "Update was successful");
                 request.getRequestDispatcher("edit.jsp").include(request, response);
