@@ -31,7 +31,6 @@ public class FetchLogsServlet extends HttpServlet {
 
         //session.setAttribute("userSearch", null);
         String search = request.getParameter("search");
-        String email = request.getParameter("email");
         
         TimeLogDBManager timeLogManager = (TimeLogDBManager) session.getAttribute("timeLogManager");
 
@@ -43,8 +42,8 @@ public class FetchLogsServlet extends HttpServlet {
         System.out.println("Is this even being called???????");
 
         try {
-            System.out.println("test1");
-            timeLogs = timeLogManager.fetchTimeLog(email);
+            
+            timeLogs = timeLogManager.fetchTimeLog();
             System.out.println("test3");
 
             

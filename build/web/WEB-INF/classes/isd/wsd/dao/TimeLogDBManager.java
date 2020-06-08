@@ -43,8 +43,8 @@ public class TimeLogDBManager {
         st.executeUpdate("INSERT INTO ISDSTAFF.TIMELOG " + "VALUES ('" + loginTime + "', '" + email + "')");
     }
     
-    public ArrayList<TimeLog> fetchTimeLog(String userEmail) throws SQLException {
-        String fetch = "SELECT * FROM ISDSTAFF.TIMELOG WHERE USEREMAIL = '" + userEmail + "'";
+    public ArrayList<TimeLog> fetchTimeLog() throws SQLException {
+        String fetch = "SELECT * FROM ISDSTAFF.TIMELOG";
         ResultSet rs = st.executeQuery(fetch);
         ArrayList<TimeLog> temp = new ArrayList();
 

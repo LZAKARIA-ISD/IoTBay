@@ -4,6 +4,8 @@
     Author     : Sam
 --%>
 
+<%@page import="isd.wsd.Staff"%>
+<%@page import="isd.wsd.Customer"%>
 <%@page import="isd.wsd.Product"%>
 <%@page import="java.text.DecimalFormat"%>
 <%@page import="java.util.ArrayList"%>
@@ -22,6 +24,8 @@
             String error = (String)session.getAttribute("productsErr");
             DecimalFormat priceFormatter = new DecimalFormat("$#0.00");
             String productSearch = (String)session.getAttribute("productSearch");
+            Customer customer = (Customer)session.getAttribute("customer");
+            Staff staff = (Staff)session.getAttribute("staff");
         %>
         
         <div class="container">
@@ -29,14 +33,21 @@
                 <h3><a href="index.jsp" class="logo-text">IoTBay</a></h3>
                 <div class="inner-nav">
                     <a href="ProductCollectionServlet" class="btn btn-outline-primary mr-2">Products</a>
-                    <!--Nav needs to be updated-->          
+                    <% if(customer == null && staff == null) { %>
+                    <a href="login.jsp" role="button" class="btn btn-light" >Login</a>
+                    <a href="register.jsp" role="button" class="btn btn-primary">Register</a>
+                    <% } else { %>
                     <a href="main.jsp" role="button" class="btn btn-primary">Main</a>
+                    <a href="logout.jsp" role="button" class="btn btn-link">Log out</a>
+                    <% } %>
                 </div>
             </div>
             
         <h1 class="text-center display-3 my-2">Products</h1>
-        <div class="flex-row d-flex justify-content-center mb-4">   
+        <div class="flex-row d-flex justify-content-center mb-4"> 
+            <% if ( staff != null ) { %>
             <a class="btn btn-outline-primary mr-sm-2" href="addProduct.jsp">Add Product</a>
+            <% } %>
             <a class="btn btn-outline-primary mr-sm-5" href="ProductCollectionServlet">List All Products</a>
             <form class="form-inline my-4 my-lg-0" method="get" action="SearchProductsServlet">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search Products" aria-label="Search" name="productSearch">
@@ -48,7 +59,7 @@
        
         <div class="row text-center">   
         <% for (Product product: products){ %>
-            <div class="col-lg-4 col-sm-6 mb-4"> 
+            <div class="col-xl-3 col-md-4 col-sm-6 mb-4"> 
                 <div class="card h-100 box-shadow">
                     <h6 class="card-header text-muted"><%= product.getType() %></h6>
                     <div class="card-body">
@@ -59,9 +70,10 @@
                         <p class="card-text">Quantity: <%= product.getQuantity() %></p>
                     </div>
                     <div class="card-footer">
+                        <% if (staff != null ) { %>
                         <a class="btn btn-outline-primary" href="DeleteProductServlet?id=<%= product.getId()%>">Delete</a>
                         <a class="btn btn-outline-primary" href="EditProductServlet?id=<%= product.getId()%>">Edit</a>
-                        <% if (product.getQuantity() > 0) {%>    
+                        <% } else if (product.getQuantity() > 0) {%>    
                         <a class="btn btn-outline-primary" href="ProductServlet?id=<%= product.getId()%>">Order</a>
                         <% } else { %>
                         Out of Stock

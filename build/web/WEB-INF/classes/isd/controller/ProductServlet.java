@@ -27,23 +27,28 @@ public class ProductServlet extends HttpServlet {
     @Override   
      protected void doGet(HttpServletRequest request, HttpServletResponse response)   throws ServletException, IOException {       
              
+             //Retrieve current session and retrieve manager instance from session
              HttpSession session = request.getSession();  
              ProductDBManager productManager = (ProductDBManager)session.getAttribute("productManager");
              
+             //Capture product ID from request
              int id = Integer.parseInt(request.getParameter("id"));
                    
              Product product = null;
-                     try {       
+                     try {  
+                         //Find product in database by ID
                          product = productManager.findProduct(id);
                      } catch (SQLException ex) {           
                            Logger.getLogger(EditProductServlet.class.getName()).log(Level.SEVERE, null, ex);       
                      }
              if (product != null){
+                 //If product is found, save to session and redirect to product page
                  session.setAttribute("product", product);
                  request.getRequestDispatcher("product.jsp").include(request, response);
              } else {
+                 //If product is not found, set error message and redirect to product collection page
                  session.setAttribute("productErr", "Product does not exist");
-                 request.getRequestDispatcher("ProductCollectionServlet").include(request, response);
+                 response.sendRedirect("ProductCollectionServlet");
              }
          
       }
