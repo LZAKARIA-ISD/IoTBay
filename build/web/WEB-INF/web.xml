@@ -16,6 +16,30 @@
         <load-on-startup>0</load-on-startup>
     </servlet>
     <servlet>
+        <servlet-name>OrderAddServlet</servlet-name>
+        <servlet-class>isd.controller.OrderAddServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>OrderCancelServlet</servlet-name>
+        <servlet-class>isd.controller.OrderCancelServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>OrderEditServlet</servlet-name>
+        <servlet-class>isd.controller.OrderEditServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>OrderUpdateServlet</servlet-name>
+        <servlet-class>isd.controller.OrderUpdateServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>OrderSearchServlet</servlet-name>
+        <servlet-class>isd.controller.OrderSearchServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>OrderHistoryServlet</servlet-name>
+        <servlet-class>isd.controller.OrderHistoryServlet</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>RegisterServlet</servlet-name>
         <servlet-class>isd.controller.RegisterServlet</servlet-class>
         <load-on-startup>0</load-on-startup>
@@ -133,6 +157,30 @@
     <servlet-mapping>
         <servlet-name>SearchProductsServlet</servlet-name>
         <url-pattern>/SearchProductsServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>OrderAddServlet</servlet-name>
+        <url-pattern>/OrderAddServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>OrderCancelServlet</servlet-name>
+        <url-pattern>/OrderCancelServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>OrderEditServlet</servlet-name>
+        <url-pattern>/OrderEditServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>OrderUpdateServlet</servlet-name>
+        <url-pattern>/OrderUpdateServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>OrderSearchServlet</servlet-name>
+        <url-pattern>/OrderSearchServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>OrderHistoryServlet</servlet-name>
+        <url-pattern>/OrderHistoryServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ProductServlet</servlet-name>
