@@ -26,26 +26,45 @@ import javax.servlet.http.HttpSession;
 public class FetchUsersServlet extends HttpServlet {
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         Validator validator = new Validator();
-        session.setAttribute("userSearch", null);
+
+        session.setAttribute("users", null);
+        String search = request.getParameter("search");
 
         CustomerDBManager customerManager = (CustomerDBManager) session.getAttribute("customerManager");
         StaffDBManager staffManager = (StaffDBManager) session.getAttribute("staffManager");
 
         validator.clear(session);
 
-        ArrayList<Customer> customers;
-        ArrayList<Staff> staff;
+        ArrayList<Customer> customers = new ArrayList();
+        ArrayList<Staff> staff = new ArrayList();
         ArrayList<User> users = new ArrayList();
 
         try {
             customers = customerManager.fetchCustomers();
             staff = staffManager.fetchStaff();
+            System.out.println("Called");
+            if (search != null) {
+                System.out.println("search not null");
+                for (User cust : customers) {
+                    if (cust.searchUser(search)) {
 
-            users.addAll(customers);
-            users.addAll(staff);
+                        users.add(cust);
+                    }
+                }
+
+                for (User st : staff) {
+                    if (st.searchUser(search)) {
+                        System.out.println("calllyo");
+                        users.add(st);
+                    }
+                }
+            } else {
+                users.addAll(customers);
+                users.addAll(staff);
+            }
 
             if (users.size() > 0) {
                 session.setAttribute("users", users);

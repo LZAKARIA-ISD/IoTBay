@@ -63,14 +63,13 @@ public class CustomerDBManager {
         String fetch = "SELECT * FROM CUSTOMERS";
         ResultSet rs = st.executeQuery(fetch);
         ArrayList<Customer> temp = new ArrayList();
-
         while (rs.next()) {
             String email = rs.getString(1);
             String name = rs.getString(2);
             String password = rs.getString(3);
             String phone = rs.getString(4);
-            String dob = rs.getString(5);
-            String customerType = rs.getString(6);
+
+            String customerType = rs.getString(5);
             temp.add(new Customer(email, name, password, phone, customerType));
         }
         return temp;

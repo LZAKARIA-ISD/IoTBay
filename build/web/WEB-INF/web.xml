@@ -53,6 +53,10 @@
         <servlet-class>isd.controller.ProductServlet</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>AddCustomerServlet</servlet-name>
+        <servlet-class>isd.controller.AddCustomerServlet</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>FetchUsersServlet</servlet-name>
         <servlet-class>isd.controller.FetchUsersServlet</servlet-class>
     </servlet>
@@ -103,6 +107,10 @@
     <servlet-mapping>
         <servlet-name>FetchUsersServlet</servlet-name>
         <url-pattern>/admin/FetchUsersServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddCustomerServlet</servlet-name>
+        <url-pattern>/admin/AddCustomerServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

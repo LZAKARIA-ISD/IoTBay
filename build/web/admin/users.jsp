@@ -15,7 +15,6 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        
        <link rel="stylesheet" href="../css/bootstrap.min.css">
         <link rel="stylesheet" href="../css/style.css" />
         <title>IoTBay - User Management</title>
@@ -23,11 +22,13 @@
     <body>
         <%
             Admin admin = (Admin)session.getAttribute("admin");
+            String search = request.getParameter("search");
             ArrayList<User> users = (ArrayList<User>) session.getAttribute("users");
                         
             if(admin == null) {
                 response.sendRedirect("login.jsp");
             }
+           
         %>
         <div class="container">
             <div class="navigation">
@@ -42,6 +43,22 @@
                 <h1 class="display-3">User Management</h1>
                 
                 <div class="customer-profile">
+                    <div class="d-flex justify-content-between align-items-end">
+                        <div class="mb-2">
+                            <a href="addCustomer.jsp" class="btn btn-success btn-sm">Add Customer</a>
+                            <a href="#" class="btn btn-success btn-sm">Add Staff Member</a>
+                        </div>
+                        <form class="form-inline " action="FetchUsersServlet" method="GET">
+                            <label class="sr-only" for="search">Search</label>
+                            <input type="text" class="form-control mb-2 mr-sm-2" id="search" name="search" placeholder="Search users..." value="<%=search != null ? search : ""%>">
+                            <button type="submit" class="btn btn-primary mb-2">Search</button>
+                            <% if(search != null){ %>
+                                <a href="FetchUsersServlet" class="btn btn-secondary mb-2 ml-2">Cancel</a>
+                            <% } %>
+
+                      </form>
+                    </div>
+                    
                     <table class="table">
                         <tr>
                             <th>Name</th>
@@ -96,4 +113,5 @@
             
             
         </div>
+    </body>
 </html>
