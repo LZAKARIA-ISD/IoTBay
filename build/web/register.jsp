@@ -68,7 +68,7 @@
                             <label for="type">Type</label>
                             <select class="form-control" id="type" name="type">
                                 <option value="individual">Individual</option>
-                                <option value="Company">Company</option>
+                                <option value="company">Company</option>
                             </select>
                           </div>
                           <hr>

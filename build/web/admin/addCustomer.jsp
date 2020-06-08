@@ -1,53 +1,62 @@
 <%-- 
-    Document   : index
-    Created on : 29/04/2020, 2:05:37 PM
+    Document   : addCustomer
+    Created on : 08/06/2020, 7:51:04 PM
     Author     : lucas
 --%>
+
+<%@page import="isd.wsd.Admin"%>
 <%@page import="isd.wsd.Customer"%>
-<%@page import="isd.wsd.Staff"%>
 <%@page import="isd.controller.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<jsp:include page="/ConnServlet"/>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/style.css" />
-        <title>IoTBay - Register Page</title>
+        
+       <link rel="stylesheet" href="../css/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/style.css" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>IoTBay - Add Customer</title>
     </head>
     <body>
         <%
-        
-            Customer customer = (Customer)session.getAttribute("customer");
-            Staff staff = (Staff)session.getAttribute("staff");
+            Admin admin = (Admin)session.getAttribute("admin");
+                        
+            if(admin == null) {
+                response.sendRedirect("login.jsp");
+            }
         %>
         <div class="container">
             <div class="navigation">
-                <h3><a href="index.jsp" class="logo-text">IoTBay</a></h3>
+                <h3><a href="../index.jsp" class="logo-text">IoTBay</a></h3>
                 <div class="inner-nav">
-                    <% if(customer == null) { %>
-                    <a href="login.jsp" role="button" class="btn btn-light" >Login</a>
-                    <a href="register.jsp" role="button" class="btn btn-primary">Register</a>
-                    <% } else { %>
-                    <a href="main.jsp" role="button" class="btn btn-primary">Main</a>
-                    <a href="LogoutServlet" role="button" class="btn btn-link">Log out</a>
-                    <% } %>
+                 
+                    <a href="index.jsp" role="button" class="btn btn-primary">Home</a>
+             
                 </div>
             </div>
-                
+            <div class="text-center">
+                <h1 class="display-4">Add Customer</h1>
                 <%
                     String existErr = (String) session.getAttribute("existErr");
                     String emailErr = (String) session.getAttribute("emailErr");
                     String nameErr = (String) session.getAttribute("nameErr");
                     String passErr = (String) session.getAttribute("passErr");
+                    String customerAdded = (String) session.getAttribute("customerAdded");
+                    System.out.println("exist = "+existErr);
+                    session.setAttribute("customerAdded", null);
                 %>
                 
-            <h1 class="display-3 text-center">Register<%=(existErr != null ? existErr : "")%></h1>
-            <div class="register">
+                <% if(customerAdded != null){ %>
+                    <div class="alert alert-success" role="alert">
+                        Customer "<%=customerAdded%>" was successfully added!
+                    </div>
+                <% } %>
+              
+            <div class="register text-left">
                 <div class="card">
                     <div class="card-body">
-                      <form method="POST" action="RegisterServlet">
+                      <form method="POST" action="AddCustomerServlet">
                         <div class="form-group">
                           <label for="name">Full Name</label>
                           <input type="text" class="form-control" id="name" name="name" placeholder="<%=(nameErr != null ? nameErr : "Enter Name")%>">
@@ -71,19 +80,21 @@
                                 <option value="company">Company</option>
                             </select>
                           </div>
-                          <hr>
-                        <div class="form-group custom-control custom-checkbox pt-2">
-                            <input type="checkbox" class="custom-control-input" id="tos" name="tos" value="tos">
-                            <label class="custom-control-label" for="tos">I agree to the terms and conditions</label>
-                        </div>
-                          <input type="hidden" name="objtype" value="register" />
                           <div class="text-center">
-                              <button type="submit" class="btn btn-primary ">Sign Up</button>
+                              <button type="submit" class="btn btn-success ">Add Customer</button>
                           </div>
                       </form>
                     </div>
                 </div>
             </div>
+                
+                
+    
+
+            </div>
+            
+            
             
         </div>
+    </body>
 </html>

@@ -25,6 +25,11 @@ public abstract class User {
         //this.address = new Address();
     }
 
+    public boolean searchUser(String search) {
+        String s = search.toLowerCase();
+        return email.toLowerCase().contains(search) || name.toLowerCase().contains(search) || phone.toLowerCase().contains(search) || password.toLowerCase().contains(search);
+    }
+
     public String getEmail() {
         return email;
     }
