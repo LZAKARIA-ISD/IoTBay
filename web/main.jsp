@@ -32,7 +32,8 @@
                     <a href="register.jsp" role="button" class="btn btn-primary">Register</a>
                     <% } else { %>
                     <a href="main.jsp" role="button" class="btn btn-primary">Main</a>
-                    <a href="logout.jsp" role="button" class="btn btn-link">Log out</a>
+                    <a href="viewAccount.jsp" role="button" class="btn btn-link">Account</a>
+                    <a href="LogoutServlet" role="button" class="btn btn-link">Log out</a>
                     <% } %>
                 </div>
             </div>
@@ -48,6 +49,7 @@
                         <th>Phone Number</th>
                         <th>Type</th>
                     </tr>
+                    <% if(customer != null) { %>
                     <tr>
                         <td>${customer.name}</td>
                         <td>${customer.email}</td>
@@ -55,6 +57,13 @@
                         <td>${customer.phone}</td>
                         <td>${customer.type}</td>
                     </tr>
+                    <% } else { %>
+                        <td>${customer.name}</td>
+                        <td>${customer.email}</td>
+                        <td>${customer.password}</td>
+                        <td>${customer.phone}</td>
+                        <td>${customer.type}</td>
+                    <% } %>
                 </table>
                 </div>
                 

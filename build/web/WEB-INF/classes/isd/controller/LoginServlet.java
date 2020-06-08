@@ -11,6 +11,8 @@ import isd.wsd.dao.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.time.format.DateTimeFormatter;  
+import java.time.LocalDateTime;   
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -35,7 +37,12 @@ public class LoginServlet extends HttpServlet {
 
         StaffDBManager staffManager = (StaffDBManager) session.getAttribute("staffManager");
         Staff staff = null;
-
+        
+        TimeLogDBManager timeLogManager = (TimeLogDBManager) session.getAttribute("timeLogManager");
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");  
+        LocalDateTime now = LocalDateTime.now(); 
+        String formattedDateTime = now.format(dtf);
+        
         validator.clear(session);
 
         if (!validator.validateEmail(email)) {
@@ -58,9 +65,11 @@ public class LoginServlet extends HttpServlet {
                 } else {
                     if (customer != null) {
                         session.setAttribute("customer", customer);
+                        timeLogManager.addTimeLog(email, dtf.format(now));
                     }
                     if (staff != null) {
                         session.setAttribute("staff", staff);
+                        timeLogManager.addTimeLog(email, formattedDateTime);
                     }
                     request.getRequestDispatcher("main.jsp").include(request, response);
                 }

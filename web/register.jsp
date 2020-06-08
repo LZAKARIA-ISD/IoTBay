@@ -31,7 +31,7 @@
                     <a href="register.jsp" role="button" class="btn btn-primary">Register</a>
                     <% } else { %>
                     <a href="main.jsp" role="button" class="btn btn-primary">Main</a>
-                    <a href="logout.jsp" role="button" class="btn btn-link">Log out</a>
+                    <a href="LogoutServlet" role="button" class="btn btn-link">Log out</a>
                     <% } %>
                 </div>
             </div>
@@ -68,6 +68,7 @@
                             <label for="type">Type</label>
                             <select class="form-control" id="type" name="type">
                                 <option value="individual">Individual</option>
+                                <option value="Company">Company</option>
                             </select>
                           </div>
                           <hr>
