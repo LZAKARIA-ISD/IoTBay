@@ -54,6 +54,10 @@
         <servlet-class>isd.controller.ProductServlet</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>AddCustomerServlet</servlet-name>
+        <servlet-class>isd.controller.AddCustomerServlet</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>LogoutServlet</servlet-name>
         <servlet-class>isd.controller.LogoutServlet</servlet-class>
         <load-on-startup>0</load-on-startup>
@@ -137,6 +141,10 @@
     <servlet-mapping>
         <servlet-name>FetchLogsServlet</servlet-name>
         <url-pattern>/FetchLogsServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddCustomerServlet</servlet-name>
+        <url-pattern>/admin/AddCustomerServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

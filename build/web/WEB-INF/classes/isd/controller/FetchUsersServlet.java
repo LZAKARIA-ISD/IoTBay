@@ -30,7 +30,7 @@ public class FetchUsersServlet extends HttpServlet {
         HttpSession session = request.getSession();
         Validator validator = new Validator();
 
-        //session.setAttribute("userSearch", null);
+        session.setAttribute("users", null);
         String search = request.getParameter("search");
 
         CustomerDBManager customerManager = (CustomerDBManager) session.getAttribute("customerManager");
@@ -42,22 +42,29 @@ public class FetchUsersServlet extends HttpServlet {
         ArrayList<Staff> staff = new ArrayList();
         ArrayList<User> users = new ArrayList();
 
-        System.out.println("Is fetch users even being called???????");
-
         try {
-            System.out.println("test1");
             customers = customerManager.fetchCustomers();
-            System.out.println("test3");
             staff = staffManager.fetchStaff();
-            System.out.println("test4");
+            System.out.println("Called");
+            if (search != null) {
+                System.out.println("search not null");
+                for (User cust : customers) {
+                    if (cust.searchUser(search)) {
 
-            System.out.println("Customers size = " + customers.size());
-            System.out.println("Staff size = " + staff.size());
+                        users.add(cust);
+                    }
+                }
 
-            users.addAll(customers);
-            users.addAll(staff);
-
-            System.out.println("Users size = " + users.size());
+                for (User st : staff) {
+                    if (st.searchUser(search)) {
+                        System.out.println("calllyo");
+                        users.add(st);
+                    }
+                }
+            } else {
+                users.addAll(customers);
+                users.addAll(staff);
+            }
 
             if (users.size() > 0) {
                 session.setAttribute("users", users);
