@@ -17,7 +17,7 @@
         <% session.invalidate(); %>
         <div class="container">
             <div class="navigation">
-                <h3><a href="index.jsp" class="logo-text">IoTBay</a></h3>
+                <h3><a href="../index.jsp" class="logo-text">IoTBay</a></h3>
                 <div class="inner-nav">
                     <a href="login.jsp" role="button" class="btn btn-light" >Login</a>
                 </div>

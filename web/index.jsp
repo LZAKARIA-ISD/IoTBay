@@ -38,10 +38,10 @@
                     <hr>
                     
                     <h5><i>Quick links</i></h5>
-                    <div>Products, orders, etc ??</div>                  
-                    <a href="ProductCollectionServlet">Products - Temp Link</a>
+                                    
+                    <a href="ProductCollectionServlet">Products</a> - <a href="main.jsp">Main Page</a>
                     <hr>
-                    <a href="admin/index.jsp">Admin Site - Temp Link</a>
+                    <a href="admin">Admin Console</a>
                 </div>
             </div>
         </div>

@@ -24,12 +24,12 @@
         %>
         <div class="container">
             <div class="navigation">
-                <h3><a href="index.jsp" class="logo-text">IoTBay</a></h3>
+                <h3><a href="../index.jsp" class="logo-text">IoTBay</a></h3>
                 <div class="inner-nav">
                     <% if(admin == null) { %>
                     <a href="login.jsp" role="button" class="btn btn-light" >Login</a>
                     <% } else { %>
-                    <a href="main.jsp" role="button" class="btn btn-primary">Main</a>
+                    <a href="index.jsp" role="button" class="btn btn-primary">Home</a>
                     <a href="logout.jsp" role="button" class="btn btn-link">Log out</a>
                     <% } %>
                 </div>
@@ -62,7 +62,7 @@
                       </form>
                       
                       <% } else { %>
-                        <a href="main.jsp" role="button" class="btn btn-primary">Continue as Admin</a>
+                        <a href="index.jsp" role="button" class="btn btn-primary">Continue as Admin</a>
                         <a href="logout.jsp" role="button" class="btn btn-link">Log out</a>
                        <% } %>
                     </div>

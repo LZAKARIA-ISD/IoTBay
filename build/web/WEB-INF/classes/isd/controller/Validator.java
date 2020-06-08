@@ -16,10 +16,9 @@ import javax.servlet.http.HttpSession;
 
 public class Validator implements Serializable {
 
-    
     private String emailPattern = "([a-zA-Z0-9]+)(([._-])([a-zA-Z0-9]+))*(@)([a-z]+)(.)([a-z]{3})((([.])[a-z]{0,2})*)";
     private String namePattern = "([A-Z][a-z]+[\\s])+[A-Z][a-z]*";
-    private String passwordPattern = "[a-zA-Z0-9]{4,}";
+    private String passwordPattern = "[a-zA-Z0-9]{4,20}";
     private String adminUsername = "[a-zA-Z0-9]{4,29}";
 
     //Product Patterns
@@ -80,10 +79,10 @@ public class Validator implements Serializable {
     }
 
     public void clear(HttpSession session) {
-        session.setAttribute("emailErr", "Enter email");
-        session.setAttribute("passErr", "Enter password");
-        session.setAttribute("existErr", "");
-        session.setAttribute("nameErr", "Enter name");
+        session.setAttribute("emailErr", null);
+        session.setAttribute("passErr", null);
+        session.setAttribute("existErr", null);
+        session.setAttribute("nameErr", null);
 
         session.setAttribute("productNameErr", null);
         session.setAttribute("detailErr", null);

@@ -47,13 +47,25 @@
                     String nameErr = (String) session.getAttribute("nameErr");
                     String passErr = (String) session.getAttribute("passErr");
                     String staffUpdated = (String) session.getAttribute("staffUpdated");
-                    System.out.println("exist = "+existErr);
+            
                     session.setAttribute("staffUpdated", null);
+            
                 %>
                 
                 <% if(staffUpdated != null){ %>
                     <div class="alert alert-success" role="alert">
                         Staff Member "<%=staffUpdated%>" was successfully updated!
+                    </div>
+                <% } %>
+                
+                <% if(nameErr != null){ %>
+                    <div class="alert alert-danger" role="alert">
+                        Staff name was incorrect in formatting. Try using capital letters and no numbers!
+                    </div>
+                <% } %>
+                <% if(passErr != null){ %>
+                    <div class="alert alert-danger" role="alert">
+                        Password was incorrect in formatting. Make sure it's between 4 and 20 characters.
                     </div>
                 <% } %>
               

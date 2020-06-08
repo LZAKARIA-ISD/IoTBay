@@ -38,9 +38,9 @@
                 </div>
             </div>
             <div class="text-center">
-                <h1 class="display-3">IoTBay Featured Products</h1>
+                <h1 class="display-3">Featured Products</h1>
                 
-                <p><em>Products coming soon...</em></p>
+                <p><em>Under Construction</em></p>
 
             </div>
             
