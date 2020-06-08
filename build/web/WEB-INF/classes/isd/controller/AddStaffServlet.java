@@ -53,7 +53,7 @@ public class AddStaffServlet extends HttpServlet {
                     session.setAttribute("existErr", "Customer already in the Database!");
                     request.getRequestDispatcher("addStaff.jsp").include(request, response);
                 } else {
-                    manager.addStaff(email, password, name, phone, position);
+                    manager.addStaff(email, name, password, phone, position);
                     session.setAttribute("staffAdded", name);
                     request.getRequestDispatcher("addStaff.jsp").include(request, response);
                 }

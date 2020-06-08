@@ -73,7 +73,7 @@ public class EditUserServlet extends HttpServlet {
         } catch (SQLException ex) {
             Logger.getLogger(EditUserServlet.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println(ex.getErrorCode() + " and " + ex.getMessage());
-            System.out.println("this is cbeing called");
+
             request.getRequestDispatcher("FetchUsersServlet").include(request, response);
         }
     }

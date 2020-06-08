@@ -18,6 +18,7 @@
             <file>file:/C:/Users/chris/OneDrive/Documents/GitHub/IoTBay%20Assessment%202/web/SQL%20for%20DB/createTimeLog.sql</file>
             <file>file:/C:/Users/chris/OneDrive/Documents/GitHub/IoTBay%20Assessment%202/web/SQL%20for%20DB/loadTestCust.sql</file>
             <file>file:/C:/Users/chris/OneDrive/Documents/GitHub/IoTBay%20Assessment%202/web/editProduct.jsp</file>
+            <file>file:/C:/Users/chris/OneDrive/Documents/GitHub/IoTBay%20Assessment%202/web/SQL%20for%20DB/loadDefaultAdmin.sql</file>
             <file>file:/C:/Users/chris/OneDrive/Documents/GitHub/IoTBay%20Assessment%202/web/SQL%20for%20DB/createCustomer.sql</file>
             <file>file:/C:/Users/chris/OneDrive/Documents/GitHub/IoTBay%20Assessment%202/web/viewAccount.jsp</file>
             <file>file:/C:/Users/chris/OneDrive/Documents/GitHub/IoTBay%20Assessment%202/web/main.jsp</file>
@@ -32,6 +33,7 @@
             <file>file:/C:/Users/chris/OneDrive/Documents/GitHub/IoTBay%20Assessment%202/web/admin/index.jsp</file>
             <file>file:/C:/Users/chris/OneDrive/Documents/GitHub/IoTBay%20Assessment%202/web/SQL%20for%20DB/createStaff.sql</file>
             <file>file:/C:/Users/chris/OneDrive/Documents/GitHub/IoTBay%20Assessment%202/src/java/isd/controller/Validator.java</file>
+            <file>file:/C:/Users/chris/OneDrive/Documents/GitHub/IoTBay%20Assessment%202/web/SQL%20for%20DB/loadTestStaff.sql</file>
             <file>file:/C:/Users/chris/OneDrive/Documents/GitHub/IoTBay%20Assessment%202/src/java/isd/wsd/dao/AdminDBManager.java</file>
             <file>file:/C:/Users/chris/OneDrive/Documents/GitHub/IoTBay%20Assessment%202/src/java/isd/controller/FetchLogsServlet.java</file>
             <file>file:/C:/Users/chris/OneDrive/Documents/GitHub/IoTBay%20Assessment%202/src/java/isd/controller/ConnServlet.java</file>
@@ -45,7 +47,6 @@
             <file>file:/C:/Users/chris/OneDrive/Documents/GitHub/IoTBay%20Assessment%202/web/addProduct.jsp</file>
             <file>file:/C:/Users/chris/OneDrive/Documents/GitHub/IoTBay%20Assessment%202/src/java/isd/controller/EditProductServlet.java</file>
             <file>file:/C:/Users/chris/OneDrive/Documents/GitHub/IoTBay%20Assessment%202/web/productCollection.jsp</file>
-            <file>file:/C:/Users/chris/OneDrive/Documents/GitHub/IoTBay%20Assessment%202/src/java/isd/controller/EditServlet.java</file>
         </group>
     </open-files>
 </project-private>

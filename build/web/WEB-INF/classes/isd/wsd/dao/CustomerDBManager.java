@@ -69,7 +69,7 @@ public class CustomerDBManager {
             String password = rs.getString(3);
             String phone = rs.getString(4);
             String customerType = rs.getString(5);
-            temp.add(new Customer(email, name, password, phone, customerType));
+            temp.add(new Customer(email, password, name, phone, customerType));
         }
         return temp;
     }
