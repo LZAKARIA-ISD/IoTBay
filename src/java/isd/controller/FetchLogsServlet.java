@@ -5,6 +5,8 @@
  */
 package isd.controller;
 
+import isd.wsd.Customer;
+import isd.wsd.Staff;
 import isd.wsd.TimeLog;
 import isd.wsd.dao.TimeLogDBManager;
 import java.io.IOException;
@@ -32,17 +34,26 @@ public class FetchLogsServlet extends HttpServlet {
 
         //session.setAttribute("userSearch", null);
         String search = request.getParameter("search");
-
+        Customer customer = (Customer) session.getAttribute("customer");
+        Staff staff = (Staff) session.getAttribute("staff");
         TimeLogDBManager timeLogManager = (TimeLogDBManager) session.getAttribute("timeLogManager");
 
         validator.clear(session);
         ArrayList<TimeLog> timeLogs = new ArrayList();
-
+        String userEmail;
+        if (customer != null) {
+            userEmail = customer.getEmail();
+        } else {
+            userEmail = staff.getEmail();
+        }
+        
+        
+        
         System.out.println("Is this even being called???????");
 
         try {
-
-            timeLogs = timeLogManager.fetchTimeLog();
+            
+            timeLogs = timeLogManager.fetchTimeLog(userEmail);
             System.out.println("test3");
 
             if (timeLogs.size() > 0) {

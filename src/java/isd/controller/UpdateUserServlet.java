@@ -37,6 +37,8 @@ public class UpdateUserServlet extends HttpServlet {
         String type = request.getParameter("type");
         String pos = request.getParameter("pos");
 
+        
+
         CustomerDBManager customerManager = (CustomerDBManager) session.getAttribute("customerManager");
         StaffDBManager staffManager = (StaffDBManager) session.getAttribute("staffManager");
 
