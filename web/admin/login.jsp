@@ -39,10 +39,20 @@
                 String adminExistErr = (String) session.getAttribute("adminExistErr");
                 String adminUserErr = (String) session.getAttribute("adminUserErr");
                 String adminPassErr = (String) session.getAttribute("adminPassErr");
+                session.setAttribute("adminExistErr",null);
             %>    
+            
+            
                 
-            <h1 class="display-3 text-center">Admin Login <%=(adminExistErr != null ? adminExistErr : "")%></h1>
+
+                
+            <h1 class="display-3 text-center">Admin Login</h1>
             <div class="register">
+                <% if(adminExistErr != null){ %>
+                    <div class="alert alert-danger" role="alert">
+                        Admin user does not exist!
+                    </div>
+                <% } %>
                 <div class="card">
                     <div class="card-body">
                         <% if (admin == null) { %>

@@ -26,6 +26,7 @@
             <div class="navigation">
                 <h3><a href="index.jsp" class="logo-text">IoTBay</a></h3>
                 <div class="inner-nav">
+                    <a href="ProductCollectionServlet" class="btn btn-outline-primary mr-2">Products</a>
                     <% if(customer == null && staff == null) { %>
                     <a href="login.jsp" role="button" class="btn btn-light" >Login</a>
                     <a href="register.jsp" role="button" class="btn btn-primary">Register</a>
