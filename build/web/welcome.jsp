@@ -22,12 +22,11 @@
             String phone = request.getParameter("phone");
             String type = request.getParameter("type");
             String tos = request.getParameter("tos");
-            String objtype = request.getParameter("objtype");
             
             Customer customer = (Customer)session.getAttribute("customer");
             
             
-            if( (tos != null && tos.equals("tos")) || (objtype != null && objtype.equals("login")) || customer != null) {
+            if((tos != null && tos.equals("tos")) || customer != null) {
                 if(customer == null){
                     customer = new Customer(email,password,name,phone,type);
                     session.setAttribute("customer",customer);
@@ -44,7 +43,7 @@
             </div>
             <div class="text-center">
             
-                <h1 class="display-3">Welcome<% if(objtype != null && objtype.equals("login")) { out.print(" back"); }%></h1>
+                <h1 class="display-3">Welcome</h1>
                 <p class="lead">
                     Welcome ${customer.name != null ? customer.name : customer.email} to the best website for all of your IoTBay needs. 
                     <br>
@@ -66,15 +65,9 @@
                 </div>
             </div>
             <div class="text-center">
-                <% if(objtype != null && objtype.equals("register")) { %>
                 <h1 class="display-3">Failed to register...</h1>
                 <p class="lead">
                     You need to accept the terms and conditions in order to be able to make an account
-                    <% } else { %>
-                <h1 class="display-3">Something went wrong...</h1>
-                <p class="lead">
-                    Something went wrong
-                <% } %>
                     <br>
                     Click to return to the home page
                 </p>

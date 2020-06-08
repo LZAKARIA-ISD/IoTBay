@@ -5,6 +5,7 @@
 --%>
 
 <%@page import="isd.wsd.Customer"%>
+<%@page import="isd.wsd.Staff"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <jsp:include page="/ConnServlet"/>
 <!DOCTYPE html>
@@ -19,13 +20,14 @@
     <body>
         <%
             Customer customer = (Customer)session.getAttribute("customer");
+            Staff staff = (Staff)session.getAttribute("staff");
         %>
         <div class="container">
             <div class="navigation">
                 <h3><a href="index.jsp" class="logo-text">IoTBay</a></h3>
                 <div class="inner-nav">
                     <a href="ProductCollectionServlet" class="btn btn-outline-primary mr-2">Products</a>
-                    <% if(customer == null) { %>
+                    <% if(customer == null && staff == null) { %>
                     <a href="login.jsp" role="button" class="btn btn-light" >Login</a>
                     <a href="register.jsp" role="button" class="btn btn-primary">Register</a>
                     <% } else { %>

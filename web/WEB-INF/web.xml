@@ -7,7 +7,7 @@
     </servlet>
     <servlet>
         <servlet-name>LoginServlet</servlet-name>
-        <servlet-class>isd.controller.CustomerLoginServlet</servlet-class>
+        <servlet-class>isd.controller.LoginServlet</servlet-class>
         <load-on-startup>0</load-on-startup>
     </servlet>
     <servlet>

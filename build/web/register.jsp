@@ -4,6 +4,7 @@
     Author     : lucas
 --%>
 <%@page import="isd.wsd.Customer"%>
+<%@page import="isd.wsd.Staff"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <jsp:include page="/CustomerConnServlet"/>
 <!DOCTYPE html>
@@ -18,7 +19,7 @@
         <%
         
             Customer customer = (Customer)session.getAttribute("customer");
-        
+            Staff staff = (Staff)session.getAttribute("staff");
         %>
         <div class="container">
             <div class="navigation">
