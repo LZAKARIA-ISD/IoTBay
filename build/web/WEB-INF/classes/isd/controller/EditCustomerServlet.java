@@ -43,13 +43,13 @@ public class EditCustomerServlet extends HttpServlet {
 
         if (!validator.validateEmail(email)) {
             session.setAttribute("emailErr", "Error: Email format incorrect");
-            request.getRequestDispatcher("addCustomer.jsp").include(request, response);
+            request.getRequestDispatcher("editCustomer.jsp").include(request, response);
         } else if (!validator.validateName(name)) {
             session.setAttribute("nameErr", "Error: Name format incorrect");
-            request.getRequestDispatcher("addCustomer.jsp").include(request, response);
+            request.getRequestDispatcher("editCustomer.jsp").include(request, response);
         } else if (!validator.validatePassword(password)) {
             session.setAttribute("passErr", "Error: Password format incorrect");
-            request.getRequestDispatcher("addCustomer.jsp").include(request, response);
+            request.getRequestDispatcher("editCustomer.jsp").include(request, response);
         } else {
             try {
                 customer = customerManager.findCustomer(email, oldPassword);

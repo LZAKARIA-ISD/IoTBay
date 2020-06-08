@@ -24,6 +24,8 @@
             Admin admin = (Admin)session.getAttribute("admin");
             String search = request.getParameter("search");
             ArrayList<User> users = (ArrayList<User>) session.getAttribute("users");
+            String userRemoved = (String) session.getAttribute("userRemoved");
+            session.setAttribute("userRemoved", null);
                         
             if(admin == null) {
                 response.sendRedirect("login.jsp");
@@ -36,6 +38,8 @@
                 <div class="inner-nav">
                  
                     <a href="index.jsp" role="button" class="btn btn-primary">Home</a>
+                    <a href="index.jsp" role="button" class="btn btn-outline-primary">Back</a>
+                    <a href="logout.jsp" role="button" class="btn btn-link">Logout</a>
              
                 </div>
             </div>
@@ -58,6 +62,12 @@
 
                       </form>
                     </div>
+                            
+                            <% if(userRemoved != null){ %>
+                                    <div class="alert alert-success" role="alert">
+                                        User <%=userRemoved%> was successfully removed!
+                                    </div>
+                             <% } %>
                     
                     <table class="table">
                         <tr>

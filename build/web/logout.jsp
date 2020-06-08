@@ -11,7 +11,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/style.css" />
-        <title>IoTBay - Login Page</title>
+        <title>IoTBay - Logout Page</title>
     </head>
     <body>
         <% session.invalidate(); %>

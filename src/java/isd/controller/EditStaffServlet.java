@@ -34,7 +34,7 @@ public class EditStaffServlet extends HttpServlet {
         String password = request.getParameter("password");
         String name = request.getParameter("name");
         String phone = request.getParameter("phone");
-        String type = request.getParameter("type");
+        String position = request.getParameter("position");
 
         StaffDBManager staffManager = (StaffDBManager) session.getAttribute("staffManager");
         Staff staff = null;
@@ -43,20 +43,20 @@ public class EditStaffServlet extends HttpServlet {
 
         if (!validator.validateEmail(email)) {
             session.setAttribute("emailErr", "Error: Email format incorrect");
-            request.getRequestDispatcher("addCustomer.jsp").include(request, response);
+            request.getRequestDispatcher("editStaff.jsp").include(request, response);
         } else if (!validator.validateName(name)) {
             session.setAttribute("nameErr", "Error: Name format incorrect");
-            request.getRequestDispatcher("addCustomer.jsp").include(request, response);
+            request.getRequestDispatcher("editStaff.jsp").include(request, response);
         } else if (!validator.validatePassword(password)) {
             session.setAttribute("passErr", "Error: Password format incorrect");
-            request.getRequestDispatcher("addCustomer.jsp").include(request, response);
+            request.getRequestDispatcher("editStaff.jsp").include(request, response);
         } else {
             try {
                 staff = staffManager.findStaff(email, oldPassword);
 
                 if (staff != null) {
-                    staffManager.updateStaff(email, password, name, phone, type);
-                    session.setAttribute("staffEdit", new Staff(email, password, name, phone, type));
+                    staffManager.updateStaff(email, password, name, phone, position);
+                    session.setAttribute("staffEdit", new Staff(email, password, name, phone, position));
                     session.setAttribute("staffUpdated", name);
                     request.getRequestDispatcher("editStaff.jsp").include(request, response);
 

@@ -67,6 +67,12 @@
                        <% } %>
                     </div>
                 </div>
+                    
+                    <div class="mt-5 text-center text-muted">
+                        <h3>Default Login</h3>
+                        <p>User: admin | Pass: admin</p>
+
+                    </div>
             </div>
             
         </div>

@@ -33,6 +33,9 @@
                 <div class="inner-nav">
                  
                     <a href="index.jsp" role="button" class="btn btn-primary">Home</a>
+                    <a href="FetchUsersServlet" role="button" class="btn btn-outline-primary">Back</a>
+                    <a href="logout.jsp" role="button" class="btn btn-link">Logout</a>
+             
              
                 </div>
             </div>

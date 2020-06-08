@@ -55,7 +55,6 @@ public class FetchUsersServlet extends HttpServlet {
 
                 for (User st : staff) {
                     if (st.searchUser(search)) {
-                        System.out.println("calllyo");
                         users.add(st);
                     }
                 }

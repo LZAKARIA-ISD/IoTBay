@@ -83,6 +83,10 @@
         <servlet-class>isd.controller.EditStaffServlet</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>RemoveUserServlet</servlet-name>
+        <servlet-class>isd.controller.RemoveUserServlet</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>FetchUsersServlet</servlet-name>
         <servlet-class>isd.controller.FetchUsersServlet</servlet-class>
     </servlet>
@@ -169,6 +173,10 @@
     <servlet-mapping>
         <servlet-name>EditStaffServlet</servlet-name>
         <url-pattern>/admin/EditStaffServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RemoveUserServlet</servlet-name>
+        <url-pattern>/admin/RemoveUserServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
