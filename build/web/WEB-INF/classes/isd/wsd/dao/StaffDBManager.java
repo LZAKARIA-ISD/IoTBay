@@ -36,7 +36,7 @@ public class StaffDBManager {
                 String staffPhone = rs.getString(4);
                 String staffPos = rs.getString(5);
 
-                return new Staff(staffEmail, staffName, staffPass, staffPhone, staffPos);
+                return new Staff(staffEmail, staffPass, staffName, staffPhone, staffPos);
             }
         }
 
@@ -66,7 +66,7 @@ public class StaffDBManager {
             String password = rs.getString(3);
             String phone = rs.getString(4);
             String pos = rs.getString(5);
-            temp.add(new Staff(email, name, password, phone, pos));
+            temp.add(new Staff(email, password, name, phone, pos));
         }
         return temp;
     }

@@ -40,6 +40,8 @@
                 %>
                 
             <h1 class="display-3 text-center">Update Details <%=(updated != null ? updated : "")%></h1>
+            
+            <% if (customer != null) { %>
             <div class="register">
                 <div class="card">
                     <div class="card-body">
@@ -76,6 +78,40 @@
                     </div>
                 </div>
             </div>
-            
+            <% } else { %>
+            <div class="register">
+                <div class="card">
+                    <div class="card-body">
+                      <form method="POST" action="UpdateUserServlet">
+                        <div class="form-group">
+                          <label for="name">Full Name</label>
+                          <input type="text" class="form-control" id="name" name="name" value="${staff.name}">
+                        </div>
+                        <div class="form-group">
+                          <label for="email">Email address</label>
+                          <input type="text" class="form-control" id="email" name="email" value="${staff.email}" readonly>
+                        </div>
+                        <div class="form-group">
+                          <label for="password">Password</label>
+                          <input type="password" class="form-control" id="password" name="password" value="${staff.password}">
+                        </div>
+                          <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" class="form-control" id="phone" name="phone" value="${staff.phone}">
+                          </div>
+                        <div class="form-group">
+                            <label for="position">Position</label>
+                            <input type="text" class="form-control" id="position" name="position" value="${staff.position}">
+                          </div>
+                          <hr>
+                          <input type="hidden" name="objtype" value="update" />
+                          <div class="text-center">
+                              <button type="submit" class="btn btn-primary ">Update</button>
+                          </div>
+                      </form>
+                    </div>  
+                </div>
+            </div>
+            <% } %>                    
         </div>
 </html>

@@ -39,12 +39,12 @@ public class TimeLogDBManager {
         return null;
     }
     
-    public void addTimeLog(String email, String loginTime) throws SQLException {
-        st.executeUpdate("INSERT INTO ISDSTAFF.TIMELOG " + "VALUES ('" + email + "', '" + loginTime + "')");
+    public void addTimeLog(String loginTime, String email) throws SQLException {
+        st.executeUpdate("INSERT INTO ISDSTAFF.TIMELOG " + "VALUES ('" + loginTime + "', '" + email + "')");
     }
     
     public ArrayList<TimeLog> fetchTimeLog(String userEmail) throws SQLException {
-        String fetch = "SELECT * FROM STAFF WHERE USEREMAIL = '" + userEmail + "'";
+        String fetch = "SELECT * FROM ISDSTAFF.TIMELOG WHERE USEREMAIL = '" + userEmail + "'";
         ResultSet rs = st.executeQuery(fetch);
         ArrayList<TimeLog> temp = new ArrayList();
 

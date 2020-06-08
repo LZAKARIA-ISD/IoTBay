@@ -70,6 +70,10 @@
         <servlet-name>FetchUsersServlet</servlet-name>
         <servlet-class>isd.controller.FetchUsersServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>FetchLogsServlet</servlet-name>
+        <servlet-class>isd.controller.FetchLogsServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
@@ -129,6 +133,10 @@
     <servlet-mapping>
         <servlet-name>FetchUsersServlet</servlet-name>
         <url-pattern>/admin/FetchUsersServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FetchLogsServlet</servlet-name>
+        <url-pattern>/FetchLogsServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
