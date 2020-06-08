@@ -11,18 +11,19 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+
 /**
  *
  * @author chris
  */
 public class TimeLogDBManager {
-    
+
     private Statement st;
 
     public TimeLogDBManager(Connection conn) throws SQLException {
         st = conn.createStatement();
     }
-    
+
     public TimeLog findTimeLog(String email) throws SQLException {
         String read = "SELECT * FROM ISDSTAFF.TIMELOG WHERE USEREMAIL='" + email + "'";
         ResultSet rs = st.executeQuery(read);
@@ -32,19 +33,19 @@ public class TimeLogDBManager {
             if (userEmail.equals(email)) {
                 String loginTime = rs.getString(2);
 
-                return new TimeLog (userEmail, loginTime);
+                return new TimeLog(userEmail, loginTime);
             }
         }
 
         return null;
     }
-    
+
     public void addTimeLog(String loginTime, String email) throws SQLException {
         st.executeUpdate("INSERT INTO ISDSTAFF.TIMELOG " + "VALUES ('" + loginTime + "', '" + email + "')");
     }
-    
-    public ArrayList<TimeLog> fetchTimeLog(String userEmail) throws SQLException {
-        String fetch = "SELECT * FROM ISDSTAFF.TIMELOG WHERE USEREMAIL = '" + userEmail + "'";
+
+    public ArrayList<TimeLog> fetchTimeLog() throws SQLException {
+        String fetch = "SELECT * FROM ISDSTAFF.TIMELOG WHERE EAMIL = ";
         ResultSet rs = st.executeQuery(fetch);
         ArrayList<TimeLog> temp = new ArrayList();
 

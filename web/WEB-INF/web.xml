@@ -75,6 +75,14 @@
         <servlet-class>isd.controller.EditUserServlet</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>EditCustomerServlet</servlet-name>
+        <servlet-class>isd.controller.EditCustomerServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EditStaffServlet</servlet-name>
+        <servlet-class>isd.controller.EditStaffServlet</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>FetchUsersServlet</servlet-name>
         <servlet-class>isd.controller.FetchUsersServlet</servlet-class>
     </servlet>
@@ -153,6 +161,14 @@
     <servlet-mapping>
         <servlet-name>AddStaffServlet</servlet-name>
         <url-pattern>/admin/AddStaffServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditCustomerServlet</servlet-name>
+        <url-pattern>/admin/EditCustomerServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditStaffServlet</servlet-name>
+        <url-pattern>/admin/EditStaffServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

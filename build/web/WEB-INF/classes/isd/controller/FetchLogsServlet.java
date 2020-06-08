@@ -24,6 +24,7 @@ import javax.servlet.http.HttpSession;
  * @author chris
  */
 public class FetchLogsServlet extends HttpServlet {
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
@@ -31,24 +32,18 @@ public class FetchLogsServlet extends HttpServlet {
 
         //session.setAttribute("userSearch", null);
         String search = request.getParameter("search");
-        String email = request.getParameter("email");
-        
+
         TimeLogDBManager timeLogManager = (TimeLogDBManager) session.getAttribute("timeLogManager");
 
         validator.clear(session);
-
         ArrayList<TimeLog> timeLogs = new ArrayList();
-        
-                
+
         System.out.println("Is this even being called???????");
 
         try {
-            System.out.println("test1");
-            timeLogs = timeLogManager.fetchTimeLog(email);
+
+            timeLogs = timeLogManager.fetchTimeLog();
             System.out.println("test3");
-
-            
-
 
             if (timeLogs.size() > 0) {
                 session.setAttribute("timeLogs", timeLogs);

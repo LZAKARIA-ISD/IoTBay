@@ -43,11 +43,11 @@ public class StaffDBManager {
         return null;
     }
 
-    public void addStaff(String email, String name, String password, String phone, String pos) throws SQLException {
+    public void addStaff(String email, String password, String name, String phone, String pos) throws SQLException {
         st.executeUpdate("INSERT INTO ISDSTAFF.STAFF " + "VALUES ('" + email + "', '" + name + "', '" + password + "', '" + phone + "', '" + pos + "')");
     }
 
-    public void updateStaff(String email, String name, String password, String phone, String pos) throws SQLException {
+    public void updateStaff(String email, String password, String name, String phone, String pos) throws SQLException {
         st.executeUpdate("UPDATE ISDSTAFF.STAFF SET STAFFNAME='" + name + "', STAFFPASSWORD='" + password + "', STAFFPHONE='" + phone + "', STAFFPOS='" + pos + "' WHERE STAFFEMAIL='" + email + "'");
     }
 

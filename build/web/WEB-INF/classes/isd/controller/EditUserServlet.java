@@ -37,10 +37,6 @@ public class EditUserServlet extends HttpServlet {
         session.setAttribute("customerEdit", null);
         session.setAttribute("staffEdit", null);
 
-        System.out.println("email = " + email);
-        System.out.println("pass = " + password);
-        System.out.println("type = " + type);
-
         CustomerDBManager customerManager = (CustomerDBManager) session.getAttribute("customerManager");
         Customer customer = null;
 
@@ -73,7 +69,7 @@ public class EditUserServlet extends HttpServlet {
         } catch (SQLException ex) {
             Logger.getLogger(EditUserServlet.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println(ex.getErrorCode() + " and " + ex.getMessage());
-            System.out.println("this is cbeing called");
+
             request.getRequestDispatcher("FetchUsersServlet").include(request, response);
         }
     }

@@ -26,10 +26,15 @@ public class UpdateProductServlet extends HttpServlet {
     @Override   
      protected void doPost(HttpServletRequest request, HttpServletResponse response)   throws ServletException, IOException {       
              
+             //Retrieve current session and retrieve manager instance from session
              HttpSession session = request.getSession();  
              ProductDBManager productManager = (ProductDBManager)session.getAttribute("productManager");
-             Validator validator = new Validator();
              
+             //Create instance of the validator and reset
+             Validator validator = new Validator();
+             validator.clear(session);
+             
+             //Capture user inputs from request
              String id = request.getParameter("id");
              String name = request.getParameter("name");
              String detail = request.getParameter("detail");
@@ -37,7 +42,7 @@ public class UpdateProductServlet extends HttpServlet {
              String price = request.getParameter("price");
              String quantity = request.getParameter("quantity");
              
-            validator.clear(session);
+            //Check if user inputs have correct format, set update message if incorrect
             if (!validator.validatePrice(price)) {
                  session.setAttribute("priceErr", "Error: Incorrect price format");
                  session.setAttribute("productUpdate", "Update Unsuccessful");
@@ -59,7 +64,8 @@ public class UpdateProductServlet extends HttpServlet {
                  session.setAttribute("productUpdate", "Update Unsuccessful");
                  request.getRequestDispatcher("editProduct.jsp").include(request, response);
              } else {
-                     try {       
+                     try {  
+                         //If formatting is correct, update product details in database and set update message
                          productManager.updateProduct(id, name, detail, type, price, quantity);
                          session.setAttribute("productUpdate", "Update Successful");
                          response.sendRedirect("EditProductServlet?id=" + id);

@@ -37,24 +37,23 @@ public class UpdateUserServlet extends HttpServlet {
         String type = request.getParameter("type");
         String pos = request.getParameter("pos");
 
-        Customer customer = new Customer(email, password, name, phone, type);
-        Staff staff = new Staff(email, password, name, phone, pos);
-
         CustomerDBManager customerManager = (CustomerDBManager) session.getAttribute("customerManager");
         StaffDBManager staffManager = (StaffDBManager) session.getAttribute("staffManager");
 
         try {
             Customer customer = customerManager.findCustomer(email, password);
             Staff staff = staffManager.findStaff(email, password);
-            
+
             if (customer != null) {
+                customerManager.updateCustomer(email, password, name, phone, type);
+                customer = new Customer(email, password, name, phone, type);
                 session.setAttribute("customer", customer);
-                customerManager.updateCustomer(email, name, password, phone, type);
                 session.setAttribute("updated", "Update was successful");
                 request.getRequestDispatcher("edit.jsp").include(request, response);
             } else if (staff != null) {
-                session.setAttribute("staff", staff);
                 staffManager.updateStaff(email, name, password, phone, pos);
+                staff = new Staff(email, password, name, phone, type);
+                session.setAttribute("staff", staff);
                 session.setAttribute("updated", "Update was successful");
                 request.getRequestDispatcher("edit.jsp").include(request, response);
             } else {

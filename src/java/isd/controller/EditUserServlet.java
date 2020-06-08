@@ -37,10 +37,6 @@ public class EditUserServlet extends HttpServlet {
         session.setAttribute("customerEdit", null);
         session.setAttribute("staffEdit", null);
 
-        System.out.println("email = " + email);
-        System.out.println("pass = " + password);
-        System.out.println("type = " + type);
-
         CustomerDBManager customerManager = (CustomerDBManager) session.getAttribute("customerManager");
         Customer customer = null;
 
