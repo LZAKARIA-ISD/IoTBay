@@ -78,6 +78,7 @@
                         </div>
                           <input type="hidden" name="objtype" value="register" />
                           <div class="text-center">
+                              <a href="index.jsp" class="btn btn-secondary ">Cancel</a>
                               <button type="submit" class="btn btn-primary ">Sign Up</button>
                           </div>
                       </form>
