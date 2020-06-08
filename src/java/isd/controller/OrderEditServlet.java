@@ -30,7 +30,8 @@ public class OrderEditServlet extends HttpServlet {
              
              HttpSession session = request.getSession();   
              DBOrderManager ordManager = (DBOrderManager)session.getAttribute("ordManager");
-            
+            ProductDBManager productManager = (ProductDBManager)session.getAttribute("productManager");
+             
              int id = Integer.parseInt(request.getParameter("id"));
              Product product = null;
                      try {       
