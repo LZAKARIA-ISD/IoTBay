@@ -42,6 +42,7 @@ public class RegisterServlet extends HttpServlet {
         TimeLogDBManager timeLogManager = (TimeLogDBManager) session.getAttribute("timeLogManager");
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");  
         LocalDateTime now = LocalDateTime.now(); 
+        String formattedDateTime = now.format(dtf);
 
         if (!validator.validateEmail(email)) {
             session.setAttribute("emailErr", "Error: Email format incorrect");
@@ -60,7 +61,7 @@ public class RegisterServlet extends HttpServlet {
                     request.getRequestDispatcher("register.jsp").include(request, response);
                 } else {
                     manager.addCustomer(email, password, name, phone, type);
-                    //timeLogManager.addTimeLog(email, dtf.format(now));
+                    timeLogManager.addTimeLog(formattedDateTime, email);
                     Customer customer = new Customer(email, password, name, phone, type);
                     session.setAttribute("customer", customer);
                     request.getRequestDispatcher("main.jsp").include(request, response);

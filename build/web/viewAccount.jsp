@@ -3,6 +3,8 @@
     Created on : 29/04/2020, 2:05:37 PM
     Author     : lucas
 --%>
+<%@page import="isd.wsd.TimeLog"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="isd.wsd.Customer"%>
 <%@page import="isd.wsd.Staff"%>
 <%@page import="isd.controller.*"%>
@@ -21,6 +23,7 @@
         
             Customer customer = (Customer)session.getAttribute("customer");
             Staff staff = (Staff)session.getAttribute("staff");
+            ArrayList<TimeLog> timeLogs = (ArrayList<TimeLog>) session.getAttribute("timeLogs");
         %>
         <div class="container">
             <div class="navigation">
@@ -64,13 +67,6 @@
                             </tr>
                         </table>
                             
-                        <h1 class="display-3 text-center">Login Times</h1>    
-                        <table class="table">
-                            <tr>
-                                <th>add time logs here</th>
-                            </tr>
-                        </table> 
-                            
                         <% } else { %>
                         <table class="table">
                             <tr>
@@ -91,16 +87,9 @@
                             </tr>
                             <tr>
                                 <th>Position:</th>
-                                <td>${staff.pos}</td>
+                                <td>${staff.position}</td>
                             </tr>
                         </table>
-                        
-                         <h1 class="display-3 text-center">Login Times</h1>
-                        <table class="table">
-                            <tr>
-                                <th>add time logs here</th>
-                            </tr>
-                        </table> 
                         <% } %>
                           <hr>
                           <div class="text-center">
@@ -110,6 +99,23 @@
                           </div>
                     </div>
                 </div>
+                <h1 class="display-3 text-center">Login Times</h1>    
+                <table class="table">
+                    <% if(timeLogs != null) {  %>
+                            <% for(TimeLog timeLog : timeLogs){ %>
+                            
+                    <tr>
+                        <th><% out.print(timeLog.getLoginTime()); %></th>
+                    </tr>
+                    
+                    <% }
+                            } else { %>
+                    <tr>
+                    <h5>no logs exist</h5>
+                    </tr>
+                    <% } %>
+                </table> 
+                <hr>
             </div>
         </div>
 </html>

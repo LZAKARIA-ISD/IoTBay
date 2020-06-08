@@ -44,6 +44,9 @@ public class UpdateUserServlet extends HttpServlet {
         StaffDBManager staffManager = (StaffDBManager) session.getAttribute("staffManager");
 
         try {
+            Customer customer = customerManager.findCustomer(email, password);
+            Staff staff = staffManager.findStaff(email, password);
+            
             if (customer != null) {
                 session.setAttribute("customer", customer);
                 customerManager.updateCustomer(email, name, password, phone, type);

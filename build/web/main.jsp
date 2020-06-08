@@ -32,40 +32,13 @@
                     <a href="register.jsp" role="button" class="btn btn-primary">Register</a>
                     <% } else { %>
                     <a href="main.jsp" role="button" class="btn btn-primary">Main</a>
-                    <a href="viewAccount.jsp" role="button" class="btn btn-link">Account</a>
+                    <a href="FetchLogsServlet" role="button" class="btn btn-link">Account</a>
                     <a href="LogoutServlet" role="button" class="btn btn-link">Log out</a>
                     <% } %>
                 </div>
             </div>
             <div class="text-center">
-                <h1 class="display-3">Customer profile</h1>
-                
-                <div class="customer-profile">
-                    <table class="table">
-                    <tr>
-                        <th>Full Name</th>
-                        <th>Email</th>
-                        <th>Password</th>
-                        <th>Phone Number</th>
-                        <th>Type</th>
-                    </tr>
-                    <% if(customer != null) { %>
-                    <tr>
-                        <td>${customer.name}</td>
-                        <td>${customer.email}</td>
-                        <td>${customer.password}</td>
-                        <td>${customer.phone}</td>
-                        <td>${customer.type}</td>
-                    </tr>
-                    <% } else { %>
-                        <td>${customer.name}</td>
-                        <td>${customer.email}</td>
-                        <td>${customer.password}</td>
-                        <td>${customer.phone}</td>
-                        <td>${customer.type}</td>
-                    <% } %>
-                </table>
-                </div>
+                <h1 class="display-3">IoTBay Featured Products</h1>
                 
                 <p><em>Products coming soon...</em></p>
 

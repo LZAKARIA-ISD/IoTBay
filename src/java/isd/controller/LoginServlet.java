@@ -65,11 +65,11 @@ public class LoginServlet extends HttpServlet {
                 } else {
                     if (customer != null) {
                         session.setAttribute("customer", customer);
-                        //timeLogManager.addTimeLog(email, formattedDateTime);
+                        timeLogManager.addTimeLog(formattedDateTime, email);
                     }
                     if (staff != null) {
                         session.setAttribute("staff", staff);
-                        //timeLogManager.addTimeLog(email, formattedDateTime);
+                        timeLogManager.addTimeLog(formattedDateTime, email);
                     }
                     request.getRequestDispatcher("main.jsp").include(request, response);
                 }

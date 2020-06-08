@@ -1,4 +1,4 @@
 CREATE TABLE TIMELOG (
-    UserEmail varchar(50) NOT NULL,
-    LoginTime varchar (50)
+    LoginTime varchar (50) NOT NULL PRIMARY KEY,
+    UserEmail varchar(50)
 )

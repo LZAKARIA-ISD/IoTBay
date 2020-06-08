@@ -13,7 +13,7 @@ public class TimeLog {
     private String userEmail;
     private String loginTime;
 
-    public TimeLog(String userEmail, String loginTime) {
+    public TimeLog(String loginTime, String userEmail) {
         this.userEmail = userEmail;
         this.loginTime = loginTime;
     }
