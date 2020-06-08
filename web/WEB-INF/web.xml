@@ -64,6 +64,8 @@
     <servlet>
         <servlet-name>EditServlet</servlet-name>
         <servlet-class>isd.controller.EditServlet</servlet-class>
+        <servlet-name>FetchUsersServlet</servlet-name>
+        <servlet-class>isd.controller.FetchUsersServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
@@ -120,6 +122,8 @@
     <servlet-mapping>
         <servlet-name>EditServlet</servlet-name>
         <url-pattern>/EditServlet</url-pattern>
+        <servlet-name>FetchUsersServlet</servlet-name>
+        <url-pattern>/admin/FetchUsersServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

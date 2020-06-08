@@ -13,7 +13,7 @@
         
        <link rel="stylesheet" href="../css/bootstrap.min.css">
         <link rel="stylesheet" href="../css/style.css" />
-        <title>IoTBay - Admin Panel</title>
+        <title>IoTBay - Admin Console</title>
     </head>
     <body>
         <%
@@ -25,10 +25,10 @@
         %>
         <div class="container">
             <div class="navigation">
-                <h3><a href="index.jsp" class="logo-text">IoTBay</a></h3>
+                <h3><a href="../index.jsp" class="logo-text">IoTBay</a></h3>
                 <div class="inner-nav">
                  
-                    <a href="../index.jsp" role="button" class="btn btn-primary">Return Home</a>
+                    <a href="index.jsp" role="button" class="btn btn-primary">Home</a>
              
                 </div>
             </div>
@@ -36,25 +36,12 @@
                 <h1 class="display-3">Admin Console</h1>
                 
                 <div class="customer-profile">
-                    <table class="table">
-                    <tr>
-                        <th>Full Name</th>
-                        <th>Email</th>
-                        <th>Password</th>
-                        <th>Date of Birth</th>
-                        <th>Gender</th>
-                    </tr>
-                    <tr>
-                        <td>${customer.name}</td>
-                        <td>${customer.email}</td>
-                        <td>${customer.password}</td>
-                        <td>${customer.dob}</td>
-                        <td class="text-capitalize">${customer.gender}</td>
-                    </tr>
-                </table>
+                   
+                    <a href="FetchUsersServlet" role="button" class="btn btn-lg btn-primary">User Management</a>
+                    <a href="#" role="button" class="btn btn-lg btn-primary">Customer Information Management</a>
                 </div>
                 
-                <p><em>Products coming soon...</em></p>
+    
 
             </div>
             
