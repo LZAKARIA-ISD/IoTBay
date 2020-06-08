@@ -11,13 +11,8 @@
         <load-on-startup>0</load-on-startup>
     </servlet>
     <servlet>
-        <servlet-name>StaffConServlet</servlet-name>
-        <servlet-class>isd.controller.StaffConnServlet</servlet-class>
-        <load-on-startup>0</load-on-startup>
-    </servlet>
-    <servlet>
-        <servlet-name>StaffLoginServlet</servlet-name>
-        <servlet-class>isd.controller.StaffLoginServlet</servlet-class>
+        <servlet-name>AdminLoginServlet</servlet-name>
+        <servlet-class>isd.controller.LoginServlet</servlet-class>
         <load-on-startup>0</load-on-startup>
     </servlet>
     <servlet>
@@ -57,25 +52,13 @@
         <servlet-name>ProductServlet</servlet-name>
         <servlet-class>isd.controller.ProductServlet</servlet-class>
     </servlet>
-    <servlet>
-        <servlet-name>StaffRegisterServlet</servlet-name>
-        <servlet-class>isd.controller.StaffRegisterServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>CustomerConnServlet</servlet-name>
-        <url-pattern>/CustomerConnServlet</url-pattern>
-    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>StaffConServlet</servlet-name>
-        <url-pattern>/StaffConServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>StaffLoginServlet</servlet-name>
-        <url-pattern>/StaffLoginServlet</url-pattern>
+        <servlet-name>AdminLoginServlet</servlet-name>
+        <url-pattern>/AdminLoginServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>RegisterServlet</servlet-name>
@@ -112,10 +95,6 @@
     <servlet-mapping>
         <servlet-name>ProductServlet</servlet-name>
         <url-pattern>/ProductServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>StaffRegisterServlet</servlet-name>
-        <url-pattern>/StaffRegisterServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

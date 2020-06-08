@@ -4,6 +4,7 @@
     Author     : lucas
 --%>
 <%@page import="isd.wsd.Customer"%>
+<%@page import="isd.wsd.Staff"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -16,6 +17,7 @@
     <body class="index-body">
         <%
             Customer customer = (Customer)session.getAttribute("customer");
+            Staff staff = (Staff)session.getAttribute("staff");
         %>
         <div class="centre">
             <div class="index-modal">
@@ -25,7 +27,7 @@
                 </p>
              
                 <div class="p-2">
-                    <% if(customer == null) { %>
+                    <% if(customer == null && staff == null) { %>
                     <a href="register.jsp" role="button" class="btn btn-primary">Register</a>
                     <a href="login.jsp"  role="button" class="btn btn-link">Or Login</a>
                        

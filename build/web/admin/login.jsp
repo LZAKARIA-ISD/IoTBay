@@ -4,14 +4,16 @@
     Author     : lucas
 --%>
 <%@page import="isd.wsd.Admin"%>
+<%@page import="isd.controller.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<jsp:include page="/ConnServlet"/>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="../css/bootstrap.min.css">
         <link rel="stylesheet" href="../css/style.css" />
-        <title>IoTBay - Login</title>
+        <title>IoTBay - Admin Login</title>
     </head>
     <body>
         <%
@@ -36,7 +38,7 @@
                 <div class="card">
                     <div class="card-body">
                         <% if (admin == null) { %>
-                      <form method="POST" action="welcome.jsp">
+                      <form method="POST" action="AdminLoginServlet">
                         <div class="form-group">
                           <label for="username">Username</label>
                           <input type="text" class="form-control" id="username" name="username" placeholder="e.g. john@smith.com">
