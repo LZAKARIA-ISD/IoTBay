@@ -30,7 +30,7 @@
                         <p>${product.detail}</p>
                         <p><%= priceFormatter.format(product.getPrice()) %></p>
                         <!--Link to order page-->
-                        <form class="form-inline justify-content-center" action="productCollection.jsp" method="post">
+                        <form class="form-inline justify-content-center" action="orderHistory.jsp" method="post">
                             <div class="form-group">
                                 <label class="mr-2" for="quantity">Quantity: </label>
                                 <input type="text" class="form-control mr-2" id="quantity" name="quantity">
@@ -39,6 +39,11 @@
                                 <input type="submit" value="Order" class="btn btn-outline-primary">
                                 <a href="ProductCollectionServlet" class="btn btn-outline-danger">Cancel</a>
                             </div>
+                            <input placeholder="<%= (productNameErr != null ? productNameErr : "") %>" value="<%= (productNameErr != null ? "" : product.getName()) %>" type="hidden" class="form-control" id="name" name="name" required="">
+                                <input placeholder="<%= (priceErr != null ? priceErr : "") %>" value="<%= (priceErr != null ? "" : product.getPrice()) %>" type="hidden" class="form-control" id="price" name="price" required="">
+                                <input placeholder="<%= (typeErr != null ? typeErr : "") %>" value="<%= (typeErr != null ? "" : product.getType()) %>" type="hidden" class="form-control" id="type" name="type" required="">                                
+                                <input placeholder="<%= (detailErr != null ? detailErr : "") %>" value="<%= (detailErr != null ? "" : product.getDetail()) %>" type="hidden" class="form-control" id="detail" name="detail" required="">
+                                <input value="${product.id}" type="hidden" class="form-control-plaintext" id="id" name="id" readonly>
                         </form>
                     </div>
                 </div>
