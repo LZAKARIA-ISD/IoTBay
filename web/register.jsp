@@ -5,8 +5,9 @@
 --%>
 <%@page import="isd.wsd.Customer"%>
 <%@page import="isd.wsd.Staff"%>
+<%@page import="isd.controller.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<jsp:include page="/CustomerConnServlet"/>
+<jsp:include page="/ConnServlet"/>
 <!DOCTYPE html>
 <html>
     <head>
@@ -62,6 +63,12 @@
                           <div class="form-group">
                             <label for="phone">Phone Number</label>
                             <input type="tel" class="form-control" id="phone" name="phone" placeholder="Enter Phone Number">
+                          </div>
+                        <div class="form-group">
+                            <label for="type">Type</label>
+                            <select class="form-control" id="type" name="type">
+                                <option value="individual">Individual</option>
+                            </select>
                           </div>
                           <hr>
                         <div class="form-group custom-control custom-checkbox pt-2">

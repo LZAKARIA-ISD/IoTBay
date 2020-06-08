@@ -10,4 +10,4 @@
 
 INSERT INTO CUSTOMERS (CUSEMAIL, CUSNAME, CUSPASSWORD, CUSPHONE, CUSTYPE)
 VALUES
-('test@test.com', 'John Smith', 'test', '0123456789', 'individual')
+('test@test.com', 'John Smith', 'test1', '0123456789', 'individual')
