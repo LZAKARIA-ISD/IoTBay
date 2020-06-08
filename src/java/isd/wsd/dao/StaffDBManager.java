@@ -25,7 +25,7 @@ public class StaffDBManager {
     }
 
     public Staff findStaff(String email, String password) throws SQLException {
-        String read = "SELECT * FROM ISDSTAFF.STAFF WHERE STAFFEMAIL='" + email + "' AND STAFPASSWORD=" + password + "'";
+        String read = "SELECT * FROM ISDSTAFF.STAFF WHERE STAFFEMAIL='" + email + "' AND STAFFPASSWORD='" + password + "'";
         ResultSet rs = st.executeQuery(read);
 
         while (rs.next()) {

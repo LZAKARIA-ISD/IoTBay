@@ -25,7 +25,7 @@ public class StaffDBManager {
     }
 
     public Staff findStaff(String email, String password) throws SQLException {
-        String read = "SELECT * FROM ISDSTAFF.STAFFS WHERE STAFFEMAIL='" + email + "' AND STAFPASSWORD=" + password + "'";
+        String read = "SELECT * FROM ISDSTAFF.STAFF WHERE STAFFEMAIL='" + email + "' AND STAFPASSWORD=" + password + "'";
         ResultSet rs = st.executeQuery(read);
 
         while (rs.next()) {
@@ -44,19 +44,19 @@ public class StaffDBManager {
     }
 
     public void addStaff(String email, String name, String password, String phone, String pos) throws SQLException {
-        st.executeUpdate("INSERT INTO ISDSTAFF.STAFFS " + "VALUES ('" + email + "', '" + name + "', '" + password + "', '" + phone + "', '" + pos + "')");
+        st.executeUpdate("INSERT INTO ISDSTAFF.STAFF " + "VALUES ('" + email + "', '" + name + "', '" + password + "', '" + phone + "', '" + pos + "')");
     }
 
     public void updateStaff(String email, String name, String password, String phone, String dob, String pos) throws SQLException {
-        st.executeUpdate("UPDATE ISDSTAFF.STAFFS SET STAFFNAME='" + name + "', STAFFPASSWORD='" + password + "', STAFFPHONE='" + phone + "', STAFFPOS='" + pos + "' WHERE STAFFEMAIL='" + email + "'");
+        st.executeUpdate("UPDATE ISDSTAFF.STAFF SET STAFFNAME='" + name + "', STAFFPASSWORD='" + password + "', STAFFPHONE='" + phone + "', STAFFPOS='" + pos + "' WHERE STAFFEMAIL='" + email + "'");
     }
 
     public void deleteStaff(String email) throws SQLException {
-        st.executeUpdate("DELETE FROM ISDSTAFF.STAFFS WHERE STAFFEMAIL='" + email + "'");
+        st.executeUpdate("DELETE FROM ISDSTAFF.STAFF WHERE STAFFEMAIL='" + email + "'");
     }
 
     public ArrayList<Staff> fetchStaff() throws SQLException {
-        String fetch = "SELECT * FROM STAFFS";
+        String fetch = "SELECT * FROM STAFF";
         ResultSet rs = st.executeQuery(fetch);
         ArrayList<Staff> temp = new ArrayList();
 
@@ -72,7 +72,7 @@ public class StaffDBManager {
     }
 
     public boolean checkStaff(String email, String password) throws SQLException {
-        String fetch = "SELECT * FROM ISDSTAFF.STAFFS WHERE STAFFEMAIL = '" + email + "' AND STAFFPASSWORD='" + password + "'";
+        String fetch = "SELECT * FROM ISDSTAFF.STAFF WHERE STAFFEMAIL = '" + email + "' AND STAFFPASSWORD='" + password + "'";
         ResultSet rs = st.executeQuery(fetch);
 
         while (rs.next()) {
