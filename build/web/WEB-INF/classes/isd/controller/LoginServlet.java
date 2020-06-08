@@ -51,7 +51,6 @@ public class LoginServlet extends HttpServlet {
                 if (customer == null && staff == null) {
                     session.setAttribute("existErr", "User does not exist in the Database!");
                     request.getRequestDispatcher("login.jsp").include(request, response);
-
                 } else {
                     if (customer != null) {
                         session.setAttribute("customer", customer);
@@ -62,6 +61,7 @@ public class LoginServlet extends HttpServlet {
                     request.getRequestDispatcher("main.jsp").include(request, response);
                 }
             } catch (SQLException | NullPointerException ex) {
+                System.out.println(ex.getMessage());
                 System.out.println(ex.getMessage() == null ? "User does not exist" : "welcome");
             }
         }

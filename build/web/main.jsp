@@ -46,12 +46,14 @@
                         <th>Email</th>
                         <th>Password</th>
                         <th>Phone Number</th>
+                        <th>Type</th>
                     </tr>
                     <tr>
                         <td>${customer.name}</td>
                         <td>${customer.email}</td>
                         <td>${customer.password}</td>
                         <td>${customer.phone}</td>
+                        <td>${customer.type}</td>
                     </tr>
                 </table>
                 </div>

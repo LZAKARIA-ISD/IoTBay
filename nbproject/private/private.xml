@@ -2,6 +2,15 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/lucas/Code/IoTBay/src/java/isd/controller/ConnServlet.java</file>
+            <file>file:/C:/Users/lucas/Code/IoTBay/src/java/isd/wsd/dao/CustomerDBManager.java</file>
+            <file>file:/C:/Users/lucas/Code/IoTBay/web/main.jsp</file>
+            <file>file:/C:/Users/lucas/Code/IoTBay/src/java/isd/controller/LoginServlet.java</file>
+            <file>file:/C:/Users/lucas/Code/IoTBay/src/java/isd/controller/RegisterServlet.java</file>
+            <file>file:/C:/Users/lucas/Code/IoTBay/src/java/isd/wsd/Customer.java</file>
+            <file>file:/C:/Users/lucas/Code/IoTBay/web/index.jsp</file>
+            <file>file:/C:/Users/lucas/Code/IoTBay/web/login.jsp</file>
+        </group>
     </open-files>
 </project-private>
