@@ -60,7 +60,7 @@ public class RegisterServlet extends HttpServlet {
                     request.getRequestDispatcher("register.jsp").include(request, response);
                 } else {
                     manager.addCustomer(email, password, name, phone, type);
-                    timeLogManager.addTimeLog(email, dtf.format(now));
+                    //timeLogManager.addTimeLog(email, dtf.format(now));
                     Customer customer = new Customer(email, password, name, phone, type);
                     session.setAttribute("customer", customer);
                     request.getRequestDispatcher("main.jsp").include(request, response);
