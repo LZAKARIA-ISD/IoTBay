@@ -15,14 +15,14 @@ public abstract class User {
     private String password;
     private String name;
     private String phone;
-    private Address address;
+    //private Address address;
 
     public User(String email, String password, String name, String phone) {
         this.email = email;
         this.password = password;
         this.name = name;
         this.phone = phone;
-        this.address = new Address();
+        //this.address = new Address();
     }
 
     public String getEmail() {
@@ -57,12 +57,11 @@ public abstract class User {
         this.phone = phone;
     }
 
-    public Address getAddress() {
+    /*public Address getAddress() {
         return address;
     }
 
     public void setAddress(String stNo, String stType, String stAddr, String state, String postcode, String deliveryInstructions) {
         address.setStNo(stNo); //etc etc
-    }
-
+    }*/
 }
