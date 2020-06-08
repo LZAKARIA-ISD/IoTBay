@@ -4,11 +4,10 @@
  * and open the template in the editor.
  */
 /**
- * Author:  chris
- * Created: 04/06/2020
+ * Author:  Sam
+ * Created: 05/06/2020
  */
 
-CREATE TABLE ADMINUSERS (
-    Username varchar(50) NOT NULL PRIMARY KEY,
-    Password varchar (50)
-)
+INSERT INTO ADMINUSERS (USERNAME, PASSWORD)
+VALUES
+('admin', 'admin')

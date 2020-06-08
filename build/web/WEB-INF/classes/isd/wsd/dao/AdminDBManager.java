@@ -25,7 +25,8 @@ public class AdminDBManager {
     }
 
     public Admin findAdmin(String username, String password) throws SQLException {
-        String read = "SELECT * FROM ISDSTAFF.ADMIN WHERE USERNAME=" + username + " AND PASSWORD=" + password;
+        String read = "SELECT * FROM ISDSTAFF.ADMINUSERS WHERE USERNAME='" + username + "' AND PASSWORD='" + password + "'";
+        System.out.println(read);
         ResultSet rs = st.executeQuery(read);
 
         while (rs.next()) {
@@ -40,21 +41,21 @@ public class AdminDBManager {
     }
 
     public void addAdmin(String username, String password) throws SQLException {
-        st.executeUpdate("INSERT INTO ISDSTAFF.ADMIN " + "VALUES ('" + username + "', '" + password + "')");
+        st.executeUpdate("INSERT INTO ISDSTAFF.ADMINUSERS " + "VALUES ('" + username + "', '" + password + "')");
     }
 
     public void updatePassword(String username, String password) throws SQLException {
-        st.executeUpdate("UPDATE ISDSTAFF.ADMIN SET PASSWORD='" + password + "' WHERE USERNAME='" + username + "'");
+        st.executeUpdate("UPDATE ISDSTAFF.ADMINUSERS SET PASSWORD='" + password + "' WHERE USERNAME='" + username + "'");
     }
 
     public void deleteAdmin(String username) throws SQLException {
         if (!username.equals("admin")) {
-            st.executeUpdate("DELETE FROM ISDSTAFF.ADMIN WHERE USERNAME='" + username + "'");
+            st.executeUpdate("DELETE FROM ISDSTAFF.ADMINUSERS WHERE USERNAME='" + username + "'");
         }
     }
 
-    public ArrayList<Admin> fetchStaff() throws SQLException {
-        String fetch = "SELECT * FROM STAFFS";
+    public ArrayList<Admin> fetchAdmins() throws SQLException {
+        String fetch = "SELECT * FROM ADMINUSERS";
         ResultSet rs = st.executeQuery(fetch);
         ArrayList<Admin> temp = new ArrayList();
 
@@ -66,8 +67,8 @@ public class AdminDBManager {
         return temp;
     }
 
-    public boolean checkStaff(String username, String password) throws SQLException {
-        String fetch = "SELECT * FROM ISDSTAFF.ADMIN WHERE USERNAME = '" + username + "' AND PASSWORD='" + password + "'";
+    public boolean checkAdmin(String username, String password) throws SQLException {
+        String fetch = "SELECT * FROM ISDSTAFF.ADMINUSERS WHERE USERNAME = '" + username + "' AND PASSWORD='" + password + "'";
         ResultSet rs = st.executeQuery(fetch);
 
         while (rs.next()) {

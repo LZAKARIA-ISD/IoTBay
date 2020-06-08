@@ -9,6 +9,6 @@
  */
 
 CREATE TABLE ADMINUSERS (
-    username varchar(50) NOT NULL PRIMARY KEY,
-    password varchar (50),
+    Username varchar(50) NOT NULL PRIMARY KEY,
+    Password varchar (50)
 )

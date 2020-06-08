@@ -40,7 +40,9 @@ public class AdminLoginServlet extends HttpServlet {
             session.setAttribute("adminPassErr", "Error: Password format incorrect");
             request.getRequestDispatcher("login.jsp").include(request, response);
         } else {
+            System.out.println(manager != null ? "exists" : "doesnt exist");
             try {
+
                 admin = manager.findAdmin(username, password);
                 if (admin != null) {
                     session.setAttribute("admin", admin);
