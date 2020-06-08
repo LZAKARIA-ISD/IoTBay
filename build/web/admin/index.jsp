@@ -37,7 +37,7 @@
                 
                 <div class="customer-profile">
                    
-                    <a href="users.jsp" role="button" class="btn btn-lg btn-primary">User Management</a>
+                    <a href="FetchUsersServlet" role="button" class="btn btn-lg btn-primary">User Management</a>
                     <a href="#" role="button" class="btn btn-lg btn-primary">Customer Information Management</a>
                 </div>
                 

@@ -65,7 +65,7 @@ public class StaffDBManager {
             String name = rs.getString(2);
             String password = rs.getString(3);
             String phone = rs.getString(4);
-            String pos = rs.getString(6);
+            String pos = rs.getString(5);
             temp.add(new Staff(email, name, password, phone, pos));
         }
         return temp;

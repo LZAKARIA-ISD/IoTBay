@@ -41,7 +41,7 @@
                     <div>Products, orders, etc ??</div>                  
                     <a href="ProductCollectionServlet">Products - Temp Link</a>
                     <hr>
-                    <a href="staff/index.jsp">Staff Site - Temp Link</a>
+                    <a href="admin/index.jsp">Admin Site - Temp Link</a>
                 </div>
             </div>
         </div>

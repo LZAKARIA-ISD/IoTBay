@@ -9,9 +9,8 @@
 <%@page import="isd.wsd.Customer"%>
 <%@page import="isd.wsd.Staff"%>
 <%@page import="isd.controller.*"%>
-
+<jsp:include page="../ConnServlet"/>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<jsp:include page="/admin/FetchUsersServlet"/>
 <!DOCTYPE html>
 <html>
     <head>
@@ -61,7 +60,7 @@
                                     <td><%out.print(user.getPassword());%></td>
                                     <td><%out.print(user.getPhone());%></td>
                                     <td><a href="updateUser.jsp?email=<%out.print(user.getEmail());%>" class="btn btn-primary btn-sm">Update</a></td>
-                                    <td><a href="removeUser.jsp?email=<%out.print(user.getEmail());%>" class="btn btn-primary btn-sm">X</a></td>
+                                    <td><a href="removeUser.jsp?email=<%out.print(user.getEmail());%>" class="btn btn-danger btn-sm">X</a></td>
                                 </tr>
 
                             <% }

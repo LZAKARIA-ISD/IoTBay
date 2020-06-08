@@ -26,26 +26,38 @@ import javax.servlet.http.HttpSession;
 public class FetchUsersServlet extends HttpServlet {
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         Validator validator = new Validator();
-        session.setAttribute("userSearch", null);
+
+        //session.setAttribute("userSearch", null);
+        String search = request.getParameter("search");
 
         CustomerDBManager customerManager = (CustomerDBManager) session.getAttribute("customerManager");
         StaffDBManager staffManager = (StaffDBManager) session.getAttribute("staffManager");
 
         validator.clear(session);
 
-        ArrayList<Customer> customers;
-        ArrayList<Staff> staff;
+        ArrayList<Customer> customers = new ArrayList();
+        ArrayList<Staff> staff = new ArrayList();
         ArrayList<User> users = new ArrayList();
 
+        System.out.println("Is fetch users even being called???????");
+
         try {
+            System.out.println("test1");
             customers = customerManager.fetchCustomers();
+            System.out.println("test3");
             staff = staffManager.fetchStaff();
+            System.out.println("test4");
+
+            System.out.println("Customers size = " + customers.size());
+            System.out.println("Staff size = " + staff.size());
 
             users.addAll(customers);
             users.addAll(staff);
+
+            System.out.println("Users size = " + users.size());
 
             if (users.size() > 0) {
                 session.setAttribute("users", users);
