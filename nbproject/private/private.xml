@@ -6,6 +6,7 @@
             <file>file:/C:/Users/chris/OneDrive/Documents/GitHub/IoTBay%20Assessment%202/src/java/isd/wsd/dao/TimeLogDBManager.java</file>
             <file>file:/C:/Users/chris/OneDrive/Documents/GitHub/IoTBay%20Assessment%202/src/java/isd/controller/FetchUsersServlet.java</file>
             <file>file:/C:/Users/chris/OneDrive/Documents/GitHub/IoTBay%20Assessment%202/src/java/isd/wsd/Staff.java</file>
+            <file>file:/C:/Users/chris/OneDrive/Documents/GitHub/IoTBay%20Assessment%202/web/admin/addCustomer.jsp</file>
             <file>file:/C:/Users/chris/OneDrive/Documents/GitHub/IoTBay%20Assessment%202/src/java/isd/controller/UpdateProductServlet.java</file>
             <file>file:/C:/Users/chris/OneDrive/Documents/GitHub/IoTBay%20Assessment%202/src/java/isd/controller/DeleteProductServlet.java</file>
             <file>file:/C:/Users/chris/OneDrive/Documents/GitHub/IoTBay%20Assessment%202/src/java/isd/wsd/dao/CustomerDBManager.java</file>
@@ -18,10 +19,11 @@
             <file>file:/C:/Users/chris/OneDrive/Documents/GitHub/IoTBay%20Assessment%202/web/SQL%20for%20DB/createTimeLog.sql</file>
             <file>file:/C:/Users/chris/OneDrive/Documents/GitHub/IoTBay%20Assessment%202/web/SQL%20for%20DB/loadTestCust.sql</file>
             <file>file:/C:/Users/chris/OneDrive/Documents/GitHub/IoTBay%20Assessment%202/web/editProduct.jsp</file>
-            <file>file:/C:/Users/chris/OneDrive/Documents/GitHub/IoTBay%20Assessment%202/web/SQL%20for%20DB/loadDefaultAdmin.sql</file>
             <file>file:/C:/Users/chris/OneDrive/Documents/GitHub/IoTBay%20Assessment%202/web/SQL%20for%20DB/createCustomer.sql</file>
             <file>file:/C:/Users/chris/OneDrive/Documents/GitHub/IoTBay%20Assessment%202/web/viewAccount.jsp</file>
+            <file>file:/C:/Users/chris/OneDrive/Documents/GitHub/IoTBay%20Assessment%202/src/java/isd/controller/EditUserServlet.java</file>
             <file>file:/C:/Users/chris/OneDrive/Documents/GitHub/IoTBay%20Assessment%202/web/main.jsp</file>
+            <file>file:/C:/Users/chris/OneDrive/Documents/GitHub/IoTBay%20Assessment%202/src/java/isd/controller/AddProductServlet.java</file>
             <file>file:/C:/Users/chris/OneDrive/Documents/GitHub/IoTBay%20Assessment%202/web/welcome.jsp</file>
             <file>file:/C:/Users/chris/OneDrive/Documents/GitHub/IoTBay%20Assessment%202/web/WEB-INF/web.xml</file>
             <file>file:/C:/Users/chris/OneDrive/Documents/GitHub/IoTBay%20Assessment%202/src/java/isd/wsd/Product.java</file>
@@ -36,6 +38,7 @@
             <file>file:/C:/Users/chris/OneDrive/Documents/GitHub/IoTBay%20Assessment%202/web/SQL%20for%20DB/loadTestStaff.sql</file>
             <file>file:/C:/Users/chris/OneDrive/Documents/GitHub/IoTBay%20Assessment%202/src/java/isd/wsd/dao/AdminDBManager.java</file>
             <file>file:/C:/Users/chris/OneDrive/Documents/GitHub/IoTBay%20Assessment%202/src/java/isd/controller/FetchLogsServlet.java</file>
+            <file>file:/C:/Users/chris/OneDrive/Documents/GitHub/IoTBay%20Assessment%202/src/java/isd/controller/AddStaffServlet.java</file>
             <file>file:/C:/Users/chris/OneDrive/Documents/GitHub/IoTBay%20Assessment%202/src/java/isd/controller/ConnServlet.java</file>
             <file>file:/C:/Users/chris/OneDrive/Documents/GitHub/IoTBay%20Assessment%202/src/java/isd/wsd/dao/ProductDBManager.java</file>
             <file>file:/C:/Users/chris/OneDrive/Documents/GitHub/IoTBay%20Assessment%202/src/java/isd/controller/LoginServlet.java</file>
@@ -47,6 +50,7 @@
             <file>file:/C:/Users/chris/OneDrive/Documents/GitHub/IoTBay%20Assessment%202/web/addProduct.jsp</file>
             <file>file:/C:/Users/chris/OneDrive/Documents/GitHub/IoTBay%20Assessment%202/src/java/isd/controller/EditProductServlet.java</file>
             <file>file:/C:/Users/chris/OneDrive/Documents/GitHub/IoTBay%20Assessment%202/web/productCollection.jsp</file>
+            <file>file:/C:/Users/chris/OneDrive/Documents/GitHub/IoTBay%20Assessment%202/src/java/isd/controller/AddCustomerServlet.java</file>
         </group>
     </open-files>
 </project-private>

@@ -13,5 +13,5 @@ CREATE TABLE STAFF (
     StaffName varchar (50),
     StaffPassword varchar (20),
     StaffPhone varchar (13),
-    StaffPos varchar (20)
+    StaffPos varchar (50)
 )

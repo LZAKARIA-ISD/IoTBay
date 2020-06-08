@@ -104,6 +104,7 @@
                             <input type="text" class="form-control" id="position" name="position" value="${staff.position}">
                           </div>
                           <hr>
+                          <input type="hidden" name="oldPassword" value="${staff.password}">
                           <input type="hidden" name="objtype" value="update" />
                           <div class="text-center">
                               <button type="submit" class="btn btn-primary ">Update</button>
