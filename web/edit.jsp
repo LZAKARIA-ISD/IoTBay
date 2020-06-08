@@ -14,11 +14,10 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/style.css" />
-        <title>IoTBay - Login</title>
+        <title>IoTBay - Register Page</title>
     </head>
     <body>
         <%
-        
             Customer customer = (Customer)session.getAttribute("customer");
             Staff staff = (Staff)session.getAttribute("staff");
         %>
@@ -36,32 +35,47 @@
                 </div>
             </div>
                 
-            <%
-                String existErr = (String) session.getAttribute("existErr");
-                String emailErr = (String) session.getAttribute("emailErr");
-                String passErr = (String) session.getAttribute("passErr");
-            %>    
+                <%
+                    String updated = (String) session.getAttribute("updated");
+                %>
                 
-            <h1 class="display-3 text-center">Login <%=(existErr != null ? existErr : "")%> </h1> 
+            <h1 class="display-3 text-center">Update Details <%=(updated != null ? updated : "")%></h1>
             <div class="register">
                 <div class="card">
                     <div class="card-body">
-                      <form method="POST" action="LoginServlet">
+                      <form method="POST" action="UpdateUserServlet">
+                        <div class="form-group">
+                          <label for="name">Full Name</label>
+                          <input type="text" class="form-control" id="name" name="name" value="${customer.name}">
+                        </div>
                         <div class="form-group">
                           <label for="email">Email address</label>
-                          <input type="text" class="form-control" id="email" name="email" placeholder="<%=(emailErr != null ? emailErr : "Enter Email")%>">
+                          <input type="text" class="form-control" id="email" name="email" value="${customer.email}" readonly>
                         </div>
                         <div class="form-group">
                           <label for="password">Password</label>
-                          <input type="password" class="form-control" id="password" name="password" placeholder="<%=(passErr != null ? passErr : "Enter Password")%>">
+                          <input type="password" class="form-control" id="password" name="password" value="${customer.password}">
                         </div>
-                          <input type="hidden" name="objtype" value="login" />
+                          <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" class="form-control" id="phone" name="phone" value="${customer.phone}">
+                          </div>
+                        <div class="form-group">
+                            <label for="type">Type</label>
+                            <select class="form-control" id="type" name="type" value="${customer.type}">
+                                <option value="individual">Individual</option>
+                                <option value="Company">Company</option>
+                            </select>
+                          </div>
+                          <hr>
+                          <input type="hidden" name="objtype" value="update" />
                           <div class="text-center">
-                              <button type="submit" class="btn btn-primary ">Log in</button>
+                              <button type="submit" class="btn btn-primary ">Update</button>
                           </div>
                       </form>
                     </div>
                 </div>
             </div>
+            
         </div>
 </html>

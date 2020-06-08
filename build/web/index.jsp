@@ -33,7 +33,7 @@
                        
                     <% } else { %>
                     <a href="main.jsp" role="button" class="btn btn-primary">Continue as ${customer.name != null ? customer.name : customer.email}</a>
-                    <a href="logout.jsp" role="button" class="btn btn-link">Log out</a>
+                    <a href="LogoutServlet" role="button" class="btn btn-link">Log out</a>
                     <% } %>
                     <hr>
                     

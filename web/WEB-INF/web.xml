@@ -23,6 +23,7 @@
     <servlet>
         <servlet-name>ConnServlet</servlet-name>
         <servlet-class>isd.controller.ConnServlet</servlet-class>
+        <load-on-startup>0</load-on-startup>
     </servlet>
     <servlet>
         <servlet-name>ProductCollectionServlet</servlet-name>
@@ -55,6 +56,17 @@
     <servlet>
         <servlet-name>AddCustomerServlet</servlet-name>
         <servlet-class>isd.controller.AddCustomerServlet</servlet-class>
+        <servlet-name>LogoutServlet</servlet-name>
+        <servlet-class>isd.controller.LogoutServlet</servlet-class>
+        <load-on-startup>0</load-on-startup>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateUserServlet</servlet-name>
+        <servlet-class>isd.controller.UpdateUserServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EditServlet</servlet-name>
+        <servlet-class>isd.controller.EditServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>FetchUsersServlet</servlet-name>
@@ -103,6 +115,18 @@
     <servlet-mapping>
         <servlet-name>ProductServlet</servlet-name>
         <url-pattern>/ProductServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LogoutServlet</servlet-name>
+        <url-pattern>/LogoutServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateUserServlet</servlet-name>
+        <url-pattern>/UpdateUserServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditServlet</servlet-name>
+        <url-pattern>/EditServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>FetchUsersServlet</servlet-name>

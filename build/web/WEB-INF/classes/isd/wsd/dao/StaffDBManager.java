@@ -34,7 +34,7 @@ public class StaffDBManager {
             if (staffEmail.equals(email) && staffPass.equals(password)) {
                 String staffName = rs.getString(2);
                 String staffPhone = rs.getString(4);
-                String staffPos = rs.getString(6);
+                String staffPos = rs.getString(5);
 
                 return new Staff(staffEmail, staffName, staffPass, staffPhone, staffPos);
             }
@@ -47,7 +47,7 @@ public class StaffDBManager {
         st.executeUpdate("INSERT INTO ISDSTAFF.STAFF " + "VALUES ('" + email + "', '" + name + "', '" + password + "', '" + phone + "', '" + pos + "')");
     }
 
-    public void updateStaff(String email, String name, String password, String phone, String dob, String pos) throws SQLException {
+    public void updateStaff(String email, String name, String password, String phone, String pos) throws SQLException {
         st.executeUpdate("UPDATE ISDSTAFF.STAFF SET STAFFNAME='" + name + "', STAFFPASSWORD='" + password + "', STAFFPHONE='" + phone + "', STAFFPOS='" + pos + "' WHERE STAFFEMAIL='" + email + "'");
     }
 

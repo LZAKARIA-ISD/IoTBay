@@ -38,7 +38,7 @@
                 <h3><a href="index.jsp" class="logo-text">IoTBay</a></h3>
                 <div class="inner-nav">
                     <a href="main.jsp" role="button" class="btn btn-primary" >Main</a>
-                    <a href="logout.jsp" role="button" class="btn btn-link">Log out</a>
+                    <a href="LogoutServlet" role="button" class="btn btn-link">Log out</a>
                 </div>
             </div>
             <div class="text-center">
