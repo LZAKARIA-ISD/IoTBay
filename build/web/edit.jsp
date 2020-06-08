@@ -70,6 +70,7 @@
                             </select>
                           </div>
                           <hr>
+                          <input type="hidden" name="oldPassword" value="${customer.password}">
                           <input type="hidden" name="objtype" value="update" />
                           <div class="text-center">
                               <button type="submit" class="btn btn-primary ">Update</button>
@@ -101,7 +102,7 @@
                           </div>
                         <div class="form-group">
                             <label for="position">Position</label>
-                            <input type="text" class="form-control" id="position" name="position" value="${staff.position}">
+                            <input type="text" class="form-control" id="position" name="position" value="<%=staff.getPosition()%>">
                           </div>
                           <hr>
                           <input type="hidden" name="oldPassword" value="${staff.password}">
