@@ -53,8 +53,8 @@ public class RegisterServlet extends HttpServlet {
                     session.setAttribute("existErr", "Customer already in the Database!");
                     request.getRequestDispatcher("register.jsp").include(request, response);
                 } else {
-                    manager.addCustomer(email, name, password, phone, type);
-                    Customer customer = new Customer(email, name, password, phone, type);
+                    manager.addCustomer(email, password, name, phone, type);
+                    Customer customer = new Customer(email, password, name, phone, type);
                     session.setAttribute("customer", customer);
                     request.getRequestDispatcher("main.jsp").include(request, response);
                 }
