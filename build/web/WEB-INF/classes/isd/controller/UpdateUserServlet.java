@@ -25,9 +25,9 @@ import javax.servlet.http.HttpSession;
  * @author chris
  */
 public class UpdateUserServlet extends HttpServlet {
-    
+
     @Override
-    protected void doPost (HttpServletRequest request, HttpServletResponse response)
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession();
         String email = request.getParameter("email");
@@ -36,13 +36,13 @@ public class UpdateUserServlet extends HttpServlet {
         String phone = request.getParameter("phone");
         String type = request.getParameter("type");
         String pos = request.getParameter("pos");
-        
-        
-        
-        
+
+        Customer customer = new Customer(email, password, name, phone, type);
+        Staff staff = new Staff(email, password, name, phone, pos);
+
         CustomerDBManager customerManager = (CustomerDBManager) session.getAttribute("customerManager");
         StaffDBManager staffManager = (StaffDBManager) session.getAttribute("staffManager");
-        
+
         try {
             Customer customer = customerManager.findCustomer(email, password);
             Staff staff = staffManager.findStaff(email, password);
@@ -60,11 +60,12 @@ public class UpdateUserServlet extends HttpServlet {
             } else {
                 session.setAttribute("updated", "Update was unsuccessful");
                 request.getRequestDispatcher("edit.jsp").include(request, response);
-            } 
+            }
         } catch (SQLException ex) {
-            Logger.getLogger(EditServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(EditUserServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -82,7 +83,7 @@ public class UpdateUserServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet UpdateUserServlet</title>");            
+            out.println("<title>Servlet UpdateUserServlet</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet UpdateUserServlet at " + request.getContextPath() + "</h1>");
@@ -90,6 +91,5 @@ public class UpdateUserServlet extends HttpServlet {
             out.println("</html>");
         }
     }
-
 
 }

@@ -46,7 +46,7 @@
                     <div class="d-flex justify-content-between align-items-end">
                         <div class="mb-2">
                             <a href="addCustomer.jsp" class="btn btn-success btn-sm">Add Customer</a>
-                            <a href="#" class="btn btn-success btn-sm">Add Staff Member</a>
+                            <a href="addStaff.jsp" class="btn btn-success btn-sm">Add Staff Member</a>
                         </div>
                         <form class="form-inline " action="FetchUsersServlet" method="GET">
                             <label class="sr-only" for="search">Search</label>
@@ -72,19 +72,33 @@
                             <% for(User user : users){ %>
 
                                 <tr>
-                                    <td><%out.print(user.getName());%></td>
-                                    <td><%out.print(user.getEmail());%></td>
-                                    <td><%out.print(user.getPassword());%></td>
-                                    <td><%out.print(user.getPhone());%></td>
-                                    <td><a href="updateUser.jsp?email=<%out.print(user.getEmail());%>" class="btn btn-primary btn-sm">Update</a></td>
-                                    <td><a href="removeUser.jsp?email=<%out.print(user.getEmail());%>" class="btn btn-danger btn-sm">X</a></td>
+                                    <td><%=user.getName()%></td>
+                                    <td><%=user.getEmail()%></td>
+                                    <td><%=user.getPassword()%></td>
+                                    <td><%=user.getPhone()%></td>
+                                    <td>
+                                        <form action="EditUserServlet" method="post">
+                                            <input type="hidden" name="email" value="<%=user.getEmail()%>" />
+                                            <input type="hidden" name="password" value="<%=user.getPassword()%>" />
+                                            <input type="hidden" name="type" value="<%=user instanceof Customer ? "customer" : "staff"%>" />
+                                            <button type="submit" class="btn btn-primary btn-sm">Update</button>
+                                        </form>
+                                    </td>
+                                    <td>
+                                        <form action="RemoveUserServlet" method="post">
+                                            <input type="hidden" name="email" value="<%=user.getEmail()%>" />
+                                            <input type="hidden" name="password" value="<%=user.getPassword()%>" />
+                                            <input type="hidden" name="type" value="<%=user instanceof Customer ? "customer" : "staff"%>" />
+                                            <button type="submit" class="btn btn-danger btn-sm">X</button>
+                                        </form>
+                                        </td>
                                 </tr>
 
                             <% }
                             } else { %>
                             
                             <tr>
-                            <h5>no users exist</h5>
+                                <h5>No users exist</h5>
                             </tr>
                             <% } %>
                             

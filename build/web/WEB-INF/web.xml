@@ -58,6 +58,10 @@
         <servlet-class>isd.controller.AddCustomerServlet</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>AddStaffServlet</servlet-name>
+        <servlet-class>isd.controller.AddStaffServlet</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>LogoutServlet</servlet-name>
         <servlet-class>isd.controller.LogoutServlet</servlet-class>
         <load-on-startup>0</load-on-startup>
@@ -67,8 +71,8 @@
         <servlet-class>isd.controller.UpdateUserServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>EditServlet</servlet-name>
-        <servlet-class>isd.controller.EditServlet</servlet-class>
+        <servlet-name>EditUserServlet</servlet-name>
+        <servlet-class>isd.controller.EditUserServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>FetchUsersServlet</servlet-name>
@@ -131,8 +135,8 @@
         <url-pattern>/UpdateUserServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>EditServlet</servlet-name>
-        <url-pattern>/EditServlet</url-pattern>
+        <servlet-name>EditUserServlet</servlet-name>
+        <url-pattern>/admin/EditUserServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>FetchUsersServlet</servlet-name>
@@ -145,6 +149,10 @@
     <servlet-mapping>
         <servlet-name>AddCustomerServlet</servlet-name>
         <url-pattern>/admin/AddCustomerServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddStaffServlet</servlet-name>
+        <url-pattern>/admin/AddStaffServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

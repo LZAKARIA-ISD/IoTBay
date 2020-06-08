@@ -45,12 +45,10 @@ public class FetchUsersServlet extends HttpServlet {
         try {
             customers = customerManager.fetchCustomers();
             staff = staffManager.fetchStaff();
-            System.out.println("Called");
             if (search != null) {
                 System.out.println("search not null");
                 for (User cust : customers) {
                     if (cust.searchUser(search)) {
-
                         users.add(cust);
                     }
                 }
