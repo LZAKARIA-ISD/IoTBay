@@ -5,13 +5,13 @@
 --%>
 <%@page import="isd.wsd.Staff"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<jsp:include page="/StaffConnServlet"/>
+<jsp:include page="../ConnServlet"/>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/style.css" />
         <title>IoTBay - Register Page</title>
     </head>
     <body>
