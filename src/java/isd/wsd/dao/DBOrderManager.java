@@ -55,7 +55,7 @@ public void updateOrder( int ordId, String name, String detail, String quantity,
 }       
 
 //delete a user from the database   
-public void CancelOrder(int ordId) throws SQLException{       
+public void cancelOrder(int ordId) throws SQLException{       
    st.executeUpdate("UPDATE ISDSTAFF.ORDERS SET ORDSTATUS = 'Cancelled' WHERE ORDID =" + ordId);
 
 }
