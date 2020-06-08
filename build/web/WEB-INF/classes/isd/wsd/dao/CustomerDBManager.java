@@ -35,7 +35,6 @@ public class CustomerDBManager {
             if (customerEmail.equals(email) && customerPass.equals(password)) {
                 String customerName = rs.getString(2);
                 String customerPhone = rs.getString(4);
-
                 String customerType = rs.getString(5);
 
                 return new Customer(customerEmail, customerPass, customerName, customerPhone, customerType);

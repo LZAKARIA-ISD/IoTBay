@@ -34,7 +34,7 @@ public class RegisterServlet extends HttpServlet {
         String phone = request.getParameter("phone");
         String type = request.getParameter("type");
 
-        CustomerDBManager manager = (CustomerDBManager) session.getAttribute("manager");
+        CustomerDBManager manager = (CustomerDBManager) session.getAttribute("customerManager");
         validator.clear(session);
 
         if (!validator.validateEmail(email)) {
