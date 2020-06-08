@@ -8,7 +8,7 @@
  * Created: 04/06/2020
  */
 
-CREATE TABLE ADMIN (
+CREATE TABLE ADMINUSERS (
     username varchar(50) NOT NULL PRIMARY KEY,
     password varchar (50),
 )

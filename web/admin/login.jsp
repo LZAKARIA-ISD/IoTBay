@@ -6,7 +6,7 @@
 <%@page import="isd.wsd.Admin"%>
 <%@page import="isd.controller.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<jsp:include page="/ConnServlet"/>
+<jsp:include page="../ConnServlet"/>
 <!DOCTYPE html>
 <html>
     <head>
@@ -19,6 +19,7 @@
         <%
         
             Admin admin = (Admin)session.getAttribute("admin");
+        
         
         %>
         <div class="container">
@@ -33,7 +34,14 @@
                     <% } %>
                 </div>
             </div>
-            <h1 class="display-3 text-center">Admin Login</h1>
+                
+            <%
+                String adminExistErr = (String) session.getAttribute("adminExistErr");
+                String adminUserErr = (String) session.getAttribute("adminUserErr");
+                String adminPassErr = (String) session.getAttribute("adminPassErr");
+            %>    
+                
+            <h1 class="display-3 text-center">Admin Login <%=(adminExistErr != null ? adminExistErr : "")%></h1>
             <div class="register">
                 <div class="card">
                     <div class="card-body">
@@ -41,14 +49,13 @@
                       <form method="POST" action="AdminLoginServlet">
                         <div class="form-group">
                           <label for="username">Username</label>
-                          <input type="text" class="form-control" id="username" name="username" placeholder="e.g. john@smith.com">
+                          <input type="text" class="form-control" id="username" name="username" placeholder="<%=(adminUserErr != null ? adminUserErr : "Enter username")%>">
                         </div>
                         <div class="form-group">
                           <label for="password">Password</label>
-                          <input type="password" class="form-control" id="password" name="password" placeholder="">
+                          <input type="password" class="form-control" id="password" name="password" placeholder="<%=(adminPassErr != null ? adminPassErr : "Enter password")%>">
                         </div>
-                    
-                          <input type="hidden" name="objtype" value="login" />
+                
                           <div class="text-center">
                               <button type="submit" class="btn btn-primary ">Log in</button>
                           </div>
@@ -63,4 +70,6 @@
             </div>
             
         </div>
+    </body>
+
 </html>

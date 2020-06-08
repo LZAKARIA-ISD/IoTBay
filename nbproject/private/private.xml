@@ -3,19 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/lucas/Code/IoTBay/src/java/isd/wsd/dao/StaffDBManager.java</file>
-            <file>file:/C:/Users/lucas/Code/IoTBay/web/admin/index.jsp</file>
-            <file>file:/C:/Users/lucas/Code/IoTBay/web/SQL%20for%20DB/createAdmin.sql</file>
-            <file>file:/C:/Users/lucas/Code/IoTBay/src/java/isd/wsd/User.java</file>
-            <file>file:/C:/Users/lucas/Code/IoTBay/src/java/isd/wsd/Customer.java</file>
-            <file>file:/C:/Users/lucas/Code/IoTBay/web/SQL%20for%20DB/createStaff.sql</file>
-            <file>file:/C:/Users/lucas/Code/IoTBay/web/WEB-INF/web.xml</file>
-            <file>file:/C:/Users/lucas/Code/IoTBay/src/java/isd/wsd/Admin.java</file>
-            <file>file:/C:/Users/lucas/Code/IoTBay/src/java/isd/controller/RegisterServlet.java</file>
+            <file>file:/C:/Users/lucas/Code/IoTBay/src/java/isd/controller/LoginServlet.java</file>
+            <file>file:/C:/Users/lucas/Code/IoTBay/src/java/isd/controller/AdminLoginServlet.java</file>
+            <file>file:/C:/Users/lucas/Code/IoTBay/src/java/isd/controller/ConnServlet.java</file>
+            <file>file:/C:/Users/lucas/Code/IoTBay/src/java/isd/controller/Validator.java</file>
             <file>file:/C:/Users/lucas/Code/IoTBay/web/SQL%20for%20DB/createCustomer.sql</file>
-            <file>file:/C:/Users/lucas/Code/IoTBay/web/SQL%20for%20DB/loadProducts.sql</file>
-            <file>file:/C:/Users/lucas/Code/IoTBay/web/register.jsp</file>
-            <file>file:/C:/Users/lucas/Code/IoTBay/src/java/isd/wsd/Staff.java</file>
+            <file>file:/C:/Users/lucas/Code/IoTBay/src/java/isd/wsd/dao/AdminDBManager.java</file>
+            <file>file:/C:/Users/lucas/Code/IoTBay/web/admin/login.jsp</file>
+            <file>file:/C:/Users/lucas/Code/IoTBay/web/WEB-INF/web.xml</file>
+            <file>file:/C:/Users/lucas/Code/IoTBay/web/SQL%20for%20DB/createAdmin.sql</file>
+            <file>file:/C:/Users/lucas/Code/IoTBay/web/login.jsp</file>
+            <file>file:/C:/Users/lucas/Code/IoTBay/web/admin/index.jsp</file>
         </group>
     </open-files>
 </project-private>

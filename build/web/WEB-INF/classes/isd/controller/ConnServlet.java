@@ -18,6 +18,7 @@ public class ConnServlet extends HttpServlet {
     private ProductDBManager productManager;
     private CustomerDBManager customerManager;
     private StaffDBManager staffManager;
+    private AdminDBManager adminManager;
 
     private Connection conn;
 
@@ -40,6 +41,7 @@ public class ConnServlet extends HttpServlet {
             productManager = new ProductDBManager(conn);
             customerManager = new CustomerDBManager(conn);
             staffManager = new StaffDBManager(conn);
+            adminManager = new AdminDBManager(conn);
         } catch (SQLException ex) {
             Logger.getLogger(ConnServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -47,6 +49,7 @@ public class ConnServlet extends HttpServlet {
         session.setAttribute("productManager", productManager);
         session.setAttribute("customerManager", customerManager);
         session.setAttribute("staffManager", staffManager);
+        session.setAttribute("adminManager", adminManager);
     }
 
     @Override //Destroy the servlet and release the resources of the application (terminate also the db connection)

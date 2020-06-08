@@ -12,7 +12,7 @@
     </servlet>
     <servlet>
         <servlet-name>AdminLoginServlet</servlet-name>
-        <servlet-class>isd.controller.LoginServlet</servlet-class>
+        <servlet-class>isd.controller.AdminLoginServlet</servlet-class>
         <load-on-startup>0</load-on-startup>
     </servlet>
     <servlet>
@@ -58,7 +58,7 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>AdminLoginServlet</servlet-name>
-        <url-pattern>/AdminLoginServlet</url-pattern>
+        <url-pattern>/admin/AdminLoginServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>RegisterServlet</servlet-name>
