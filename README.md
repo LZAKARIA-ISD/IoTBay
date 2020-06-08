@@ -8,3 +8,8 @@ How to run our project;
 3. In NetBeans under the file tab menu select "Open Project" and click on the unzipped file (Ctrl + Shift + O)
 4. Inside the project navigate to Web Pages --> SQL for DB & run each sql file (Shift + f6)
 5. Make sure each sql file has a connection that ends with ".../IoTBayDB [isdstaff on ISDSTAFF]"
+    a. i.e. set Database Name: IoTBayDB
+    b. Username: isdStaff
+    c. password & password confirm: admin
+        i. use for simplicity
+
